@@ -1,0 +1,145 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="國立中興大學資訊科學與工程系新聞">
+    <meta name="keyword" content="中興大學, 資訊科學與工程, 中興資工, 中興">
+    <meta name="name" content="林凡煒">
+
+    <title>新聞 - 國立中興大學資訊科學與工程學系</title>
+    <script>
+        document.writeln("<canvas id=\"myCanvas\"></canvas>");
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<div>");
+        document.writeln("<h1>新聞</h1>");
+        document.writeln("<p><a href=\"index.html\">返回首頁</a></p>");
+        document.writeln("<hr>");
+        document.writeln("</div>");
+        document.writeln("<table border=\"1\">");
+        document.writeln("<tr><td><a href=\"1.html\">國立中興大學資訊科學與工程學系徵求系主任</a><article>國立中興大學資訊科學與工程學系徵求系主任 公告一、     依據本系系主任選薦及解聘要點，公開徵求系主任候選人，任期：105年8月1日至108年7月31日止。二、     申請人應具備條件：（一）具本校副教授以上資格且未曾擔任本校系所主管兩任者為原則。</article></td></td>");
+        document.writeln("<tr><td><a href=\"2.html\">105學年度碩士在職專班招生面試時間表</a><article>如附件！</article></td></td>");
+        document.writeln("<tr><td><a href=\"3.html\">公告；104學年度學期系定必修課程獎學金受推薦學生名單</a><article>國立中興大學　資訊科學與工程學系105學年度第2學期新聘教師說明一、	徵聘師資專任助理教授(含)以上教師 1 名。</article></td></td>");
+        document.writeln("<tr><td><a href=\"4.html\">公告；104學年度學期系定必修課程獎學金受推薦學生名單</a><article>請得獎同學於105年2月26日之前儘速攜帶 身份證 到系辦公室填寫資料，並且儘速至學務系統->個人基本資料中【新生撥款局帳號】功能，自行登錄本人局<行>帳號，以利獎學金匯款作業。</article></td></td>");
+        document.writeln("<tr><td><a href=\"5.html\">國立中興大學105學年度資訊科學與工程學系碩士班第5梯次新生放棄產生的缺額獲遞補名單公告</a><article>詳如附件。</article></td></td>");
+        document.writeln("<tr><td><a href=\"6.html\">國立中興大學105學年度資訊科學與工程學系碩士班第4梯次新生放棄產生的缺額獲遞補名單公告</a><article>詳如附件。</article></td></td>");
+        document.writeln("<tr><td><a href=\"7.html\">國立中興大學105學年度資訊科學與工程學系碩士班第3梯次新生放棄產生的缺額獲遞補名單公告</a><article>詳如附件。</article></td></td>");
+        document.writeln("<tr><td><a href=\"8.html\">2016年健康路跑T恤圖案開始徵選囉！</a><article>2016年健康路跑T恤圖案開始甄選囉！歡迎各位同學們踴躍投稿，相關規範及範例詳如附件。</article></td></td>");
+        document.writeln("<tr><td><a href=\"9.html\">國立中興大學105學年度資訊科學與工程學系碩士班第2梯次新生放棄產生的缺額獲遞補名單公告</a><article>詳如附件。</article></td></td>");
+        document.writeln("<tr><td><a href=\"10.html\">2016年寒假程式設計培訓課程開始報名了！</a><article>中興大學資訊科學與工程學系2016年寒假程式設計培訓課程報名網站：<a href=\"http://udiclab.cs.nchu.edu.tw/portal_login_form/web/index.php\">http://udiclab.cs.nchu.edu.tw/portal_login_form/web/index.php</a>        說明：        你是否知道下列事實：Bill Gates在20歲創立Microsoft，Steve Jobs在21歲創立Apple，楊致遠在27歲創立Yahoo，Larry Page與Sergey Brin在25歲創立Google，陳士駿在27歲創立YouTube，Mark Zuckerberg在20歲創立Facebook。這些人都不是靠著富爸爸成功，而是靠著創意，以及實現創意的程式設計能力，成為年輕的創業家。你是否懷抱著和他們同樣地熱情與實現夢想的心？歡迎你把握機會，報名參加免費的程式設計培訓課程，為實現你的夢想跨出最重要的一步。</article></td></td>");
+        document.writeln("</table>");
+
+    </script>
+    <script>
+        var body = document.getElementsByTagName("body");
+        body[0].style.fontFamily = "Microsoft JhengHei";
+        body[0].style.backgroundColor = "lightsteelblue";
+
+        var h1 = document.getElementsByTagName("h1");
+        h1[0].style.fontWeight = "lighter";
+        h1[0].style.fontSize = "3em";
+        h1[0].style.fontFamily = "Microsoft JhengHei";
+        h1[0].style.textAlign = "center";
+        h1[0].style.textShadow = "2px 2px 0.8px";
+        h1[0].style.color = "grey";
+
+        var canvas = document.getElementById("myCanvas");
+        canvas.style.position = "absolute";
+        canvas.style.width = "100%";
+        canvas.style.height = "200px";
+        canvas.style.top = "0px";
+        canvas.style.left = "0px";
+        canvas.style.zIndex = "-1";
+        var ctx = canvas.getContext("2d");
+        var grd = ctx.createRadialGradient(150, 50, 5, 150, 50, 100);
+        grd.addColorStop(0, "white");
+        grd.addColorStop(1, "lightsteelblue");
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, 1500, 1000);
+        
+        var td = document.getElementsByTagName("td");
+        for (var i = 0; i < td.length; i++) {
+            td[i].style.fontWeight = "bold";
+            td[i].style.margin = "5px";
+        }
+    </script>
+    <script>
+
+        var tr = document.getElementsByTagName("tr");
+        var record = Array();
+        var length = 10;
+
+        for (var i = 0; i < length; i++) {
+            record[i] = tr[i].innerHTML;
+        }
+
+        function Random() {
+            tr = document.getElementsByTagName("tr");
+            for (var i = 0; i < length; i++) {
+                var random = Math.floor((Math.random() * length));
+                var temp = tr[i].innerHTML;
+                tr[i].innerHTML = tr[random].innerHTML;
+                tr[random].innerHTML = temp;
+            }
+        }
+        function Sort() {
+            var choice = prompt("Please decide your sorting types", "Ascending or Descending");
+            var tr = document.getElementsByTagName("tr");
+            var array = Array();
+            for (var i = 0; i < length; i++) {
+                var a = tr[i].getElementsByTagName("a");
+                array[i] = encodeURIComponent(a[0].innerHTML.charAt(0));
+            }
+            if (choice == "Ascending") {
+                for (var i = 0; i < length; i++) {
+                    var min = array[i];
+                    for (var j = i; j < length; j++) {
+                        if (array[j] < min) {
+                            min = array[j];
+                            array[j] = array[i];
+                            array[i] = min;
+                            var temp = tr[i].innerHTML;
+                            tr[i].innerHTML = tr[j].innerHTML;
+                            tr[j].innerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice == "Descending") {
+                for (var i = 0; i < length; i++) {
+                    var max = array[i];
+                    for (var j = i; j < length; j++) {
+                        if (array[j] > max) {
+                            max = array[j];
+                            array[j] = array[i];
+                            array[i] = max;
+                            var temp = tr[i].innerHTML;
+                            tr[i].innerHTML = tr[j].innerHTML;
+                            tr[j].innerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice != null) {
+                alert("The format isn't correct!");
+            }
+        }
+        function Reset() {
+            for (var i = 0; i < length; i++) {
+                tr[i].innerHTML = record[i];
+            }
+        }
+
+    </script>
+    
+</head>
+<body>
+
+</body>
+</html>

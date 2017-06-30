@@ -1,0 +1,212 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<meta name="descripition" content="國立中興大學資訊科學與工程系註冊教授群">
+	<meta name="keyword" content="中興大學, 資訊科學與工程, 中興資工, 中興">
+	<meta name="name" content="林凡煒">
+	<title>教授群 - 國立中興大學資訊科學與工程學系</title>
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<h1 id=\"top\">教授群 - 專任</h1>");
+        document.writeln("<p><a href=\"index.html\">返回首頁</a>");
+        document.writeln("<a href=\"professor_english.html\">English page</a>");
+        document.writeln("</p>");
+        document.writeln("<hr>");
+        document.writeln("<p><nav><a href=\"professor-section1.html\">專任</a>");
+        document.writeln("<a href=\"professor-section2.html\">兼任</a>");
+        document.writeln("</nav></p>");
+        document.writeln("<table border=\"0\">");
+        document.writeln("<tbody>");
+
+        var professor = [
+            "李德財 特約特聘講座教授",
+            "林偉 教授",
+            "詹進科 教授",
+            "喻石生 教授",
+            "王行健 教授",
+            "洪國寶 教授",
+            "王宗銘 教授",
+            "廖宜恩 教授兼系主任",
+            "賈坤芳 教授",
+            "高勝助 教授",
+            "黃德成 教授兼校友中心主任",
+            "張延任 教授兼計資中心研究發展組組長",
+            "王丕中 教授",
+            "張軒彬 副教授",
+            "吳俊霖 副教授",
+            "陳 煥 副教授",
+            "黃春融 副教授",
+            "曾學文 副教授",
+            "范耀中 助理教授",
+        ];
+
+        var degree = [
+            "台大電機學士、美國伊利諾大學香檳分校電腦科學碩士、博士",
+            "1985年美國德州大學奧斯汀電機電腦博士",
+            "1986年美國馬里蘭大學計算機科學系研修、1980年日本國立東京大學情報科學系碩士、1974年輔仁大學物理學系學士",
+            "加拿大西安大略大學計算機科學博士",
+            "美國普林斯頓大學電機博士",
+            "美國南加州大學電腦科學博士、台灣大學電機學士",
+            "英國里茲大學資訊工程暨科學博士",
+            "美國俄亥俄州立大學計算機科學博士",
+            "美國密西根大學資訊科學暨工程博士",
+            "美國俄亥俄州立大學計算機科學博士",
+            "國立中正大學資訊工程博士",
+            "國立台灣大學資訊工程博士",
+            "國立交通大學資訊工程博士",
+            "國立交通大學資訊科學博士",
+            "國立成功大學電機工程博士",
+            "美國南加州大學(USC)電機工程博士、清華大學電機工程碩士、學士",
+            "國立成功大學電機工程博士",
+            "國立台灣大學資訊工程博士",
+            "國立清華大學資訊工程博士"
+        ];
+
+        var experience = [
+            "西北大學電機電腦工程系教授、美國國科會Program Director、中央研究院院士、中央研究院資訊所特聘研究員兼所長、台灣大學資工系特聘研究講座教授、交通大學資工系特聘研究講座教授、台灣科技大學榮譽研究講座教授",
+            "美國夏威夷大學電機系副教授、美國賓州州立大學電機系助教授",
+            "中興大學應用數學研究所教授、中興大學計算機中心主任、中興大學應用數學研究所副教授、中興大學僑生暨外籍生輔導室主任",
+            "國立中興大學應用數學系教授、嶺東商專講師、彰化高中老師",
+            "國AT&T貝爾實驗室研究員",
+            "中國生產力中心",
+            "英國IBM 科學研究中心副研究員",
+            "國立中興大學應用數學系副教授",
+            "美國Bellcore公司實驗室研究員",
+            "國立中興大學應用數學系副教授、中華民國OSI通訊協定標準草案網路管理小組(NM)召集人、中華民國OSI通訊協定標準草案網路管理小組(NM)成員、俄亥俄州立大學計算機科學系研究助理、俄亥俄州立大學數學系教學助理、國立政治大學應用數學系助教",
+            "中山科學研究院、工研院電通所、國立勤益技術學院電子工程系、國立中興大學計資中心主任",
+            "國立中興大學資訊科學系助理教授",
+            "中華電信研究所助理研究員",
+            "國立中興大學資訊科學系助理教授、國立彰化師範大學電子系助理教授、國立交通大學電子資訊研究中心博士後研究員",
+            "友立資訊資深主任工程師",
+            "中正大學助理教授、副教授、中正大學學務處畢僑組組長",
+            "中央研究院資訊科學研究所博士後研究",
+            "友勁科技專案副理; 工研院雲端中心工程師",
+            "賓州州立大學訪問學者"
+        ];
+
+        var expert = [
+            "Design and Analysis of Algorithms、Computational Geometry、Web based Computing、Software Security、	Algorithm Visualization、Bioinformatics、Digital Libraries",
+            "Wireless Networks、Network Switching and Routing、System Performance Evaluation、Parallel/Distributed Systems",
+            "Information Security、Data Engineering",
+            "Pattern Recognition、Biological & Medical Image Processing、Bioinformation、Data Mining",
+            "VLSI Design、Digital System Testing、CAD",
+            "Cryptography、Artificial Intelligence、Information Security",
+            "Computer Graphics and Color Science、3D Steganography and Watermarking、Virtual Reality",
+            "XML Databases、Data Mining、Wireless Network、Cloud Computing and Big Data Analytics",
+            "Cloud Computing、Data Mining、XML Technology、Database System、Big Data Analysis",
+            "Computer Networks、Systems and Network Management、XML Data Processing、Cloud Computing",
+            "VLSI Design and Testing、Digital Signal Processing、Network、Image Processing",
+            "Low Power VLSI Design、Memory Circuit Design、Embedded System、Intelligent Robot System",
+            "High Speed Networks、Wireless Sensor Networks、Algorithms",
+            "Operating Systems、 Embedded Systems、 Computer Networks",
+            "Computational Photography、Image Processing、Pattern Recognition、Signal Processing",
+            "Wireless Sensor Networks (WSN)、Body Area Networks (BAN)、 Network Optimization、Signal Processing、 MG+4C Embedded Systems、Android and Cloud Services",
+            "Computer Vision、Multimedia Signal Processing、Medical Image Processing",
+            "Wireless Networks、Networks on Chip、Cloud Computing and Networking、Performance Evaluation",
+            "Data Mining、Data Management、Green Computing、Mobile Application"
+        ];
+
+        var tel = [
+            "886-2-2788-3799 #2209",
+            "(04)2284-0497 ext 907",
+            "(04)2284-0497 ext 706",
+            "(04)2284-0497 ext 807",
+            "(04)2284-0497 ext 910",
+            "(04)2284-0497 ext 912",
+            "(04)2284-0497 ext 915",
+            "(04)2284-0497 ext 705",
+            "(04)2284-0497 ext 906",
+            "(04)2284-0497 ext 708",
+            "(04)2284-0497 ext 920",
+            "(04)2284-0497 ext 918",
+            "(04)2284-0497 ext 710",
+            "(04)2284-0497 ext 917",
+            "(04)2284-0497 ext 921",
+            "(04)2284-0497 ext 810",
+            "(04)2284-0497 ext 805",
+            "(04)2284-0497 ext 908",
+            "(04)2284-0497 ext 605"
+        ];
+
+        var website = [
+        	"http://www.iis.sinica.edu.tw/pages/dtlee/index_zh.html",
+        	"http://syslab.cs.nchu.edu.tw/faculty.htm",
+        	"http://securitylab.cs.nchu.edu.tw/",
+        	"http://miplab.cs.nchu.edu.tw/teacher.htm",
+        	"http://vlsilab.cs.nchu.edu.tw/professor.html",
+        	"http://ailab.cs.nchu.edu.tw/g.b.horng.htm",
+        	"http://gmvr.cs.nchu.edu.tw/cmwang",
+        	"http://dmlab.cs.nchu.edu.tw/",
+        	"http://delab.cs.nchu.edu.tw/new_mainpage/index.html",
+        	"http://snmlab.cs.nchu.edu.tw/professor.asp",
+        	"http://soc.cs.nchu.edu.tw/adviser.php",
+        	"http://web.nchu.edu.tw/~ychang",
+        	"http://nclab.cs.nchu.edu.tw/advisor.php",
+        	"http://osnet.cs.nchu.edu.tw/hpchang.html",
+        	"http://web.nchu.edu.tw/~jlwu/",
+        	"http://awin.cs.nchu.edu.tw/welcome-to-awinlab/people/our-teacher/",
+        	"http://www.cs.nchu.edu.tw/~crhuang",
+        	"http://web.nchu.edu.tw/~hwtseng",
+        	"http://web.nchu.edu.tw/~yfan/"
+        ];
+
+        var email = [
+        	"dtleeat@iis.sinica.edu.tw",
+        	"wlin@nchu.edu.tw",
+        	"jkjan@cs.nchu.edu.tw",
+        	"pyu@nchu.edu.tw",
+        	"sjwang@cs.nchu.edu.tw",
+        	"gbhorng@cs.nchu.edu.tw",
+        	"cmwang@cs.nchu.edu.tw",
+        	"ieliao@nchu.edu.tw",
+        	"kfjea@cs.nchu.edu.tw",
+        	"sjkao@cs.nchu.edu.tw",
+        	"huangdc@cs.nchu.edu.tw",
+        	"ychang@cs.nchu.edu.tw",
+        	"pcwang@nchu.edu.tw",
+        	"hpchang@cs.nchu.edu.tw",
+        	"jlwu@nchu.edu.tw",
+        	"huan@nchu.edu.tw",
+        	"crhuang@nchu.edu.tw",
+        	"hwtseng@nchu.edu.tw",
+        	"yfan@nchu.edu.tw"
+        ];
+        for (var i = 0; i < professor.length; i++) {
+            var number = parseInt(i) + 1;
+            document.writeln("<tr><td>");
+            document.writeln("<img src=\"img/professor/" + number + ".jpg\">");
+            document.writeln("</td>");
+            document.writeln("<td>");
+            document.writeln("<canvas class=\"myCanvas\"></canvas>");
+            document.writeln("<h3>" + professor[i] + "</h3>");
+            document.writeln("<ul>");
+            document.writeln("<li>學歷：\t" + degree[i] +　"</li>");
+            document.writeln("<li>經歷：\t" + experience[i] + "</li>");
+            document.writeln("<li>專長領域：\t" + expert[i] + "</li>");
+            document.writeln("<li>聯絡電話：\t" + tel[i] + "</li>");
+            document.writeln("<li>個人網頁：\t" + "<a href=\"" + website[i] + "\">" + website[i] + "</a></li>");
+            document.writeln("<li>電子信箱：\t" + "<a href=\"mailto:" + email[i] + "\">" + email[i] + "</a></li>");
+            document.writeln("</ul></td></tr>");
+           
+        }
+        document.writeln("</tbody></table>");
+        document.writeln("<p><a href=\"#top\">回到頂端</a></p>");
+
+    </script>
+    <script src="professor.js"></script>
+
+</head>
+<body>
+
+</body>
+</html>

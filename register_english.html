@@ -1,0 +1,161 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="National Chung-Hsing Universaity CSE Register">
+    <meta name="keyword" content="National Chung-Hsing Universaity, Computer Science, Chung-Hsing CSE, Chung-Hsing">
+    <meta name="name" content="Fan-wei Lin">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+    <title>Register - National Chung-Hsing Universaity</title>
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("	<h1>Register</h1>" +
+	"<p>" +
+		"<nav>" +
+			"<a href=\"index_english.html\"\>Back to <em>HOME</em> page</a>" +
+			"<a href=\"register.html\">中文版</a>" +
+		"</nav>" +
+	"</p>" +
+	"<hr>" +
+	"<footer>" +
+	"<form method =\"post\">" +
+	"<p>" +
+		"<label>*Username: </label><input name=\"username\" type=\"text\" size=\"25\" maxlength=\"30\"  required><br>" +
+	"</p>" +
+	"<p>" +
+		"<label>*Password: </label><input name=\"password\" type=\"text\" size=\"25\" maxlength=\"30\" required><br>" +
+	"</p>" +
+	"<p>" +
+		"<label>*Please enter your password again: </label><input name=\"password\" type=\"text\" size=\"25\" maxlength=\"30\" required><br>" +
+	"</p>" +
+	"<p>" +
+		"<label>Full Name: </label><input name=\"name\" type=\"text\" size=\"10\" maxlength=\"10\"><br>" +
+	"</p>" +
+	"<p>" +
+		"<label>Birthday: </label><input name=\"birthday\" type=\"date\" size=\"25\"><br>" +
+	"</p>" +
+	"<p>" +
+		"<label>*Department: </label><input name=\"grade\" type=\"text\" size=\"10\" placeholder=\"Enter your department\" requrired><br>" +
+	"</p>" +
+	"<p>" +
+		"<label>*E-mail: </label><input name=\"email\" type=\"email\" placeholder=\"name@mail.nchu.edu.tw\" required><br>" +
+	"</p>" +
+	"<p>" +
+		"<label>TEL: </label><input name=\"tel\" type=\"tel\" placeholder=\"(##)###-####\"  pattern = \"\(\d{2}\)+\d{3}-\d{4}\"><br>" +
+	"</p>" +
+	"<p>" +
+		"<label>*Cell-Phone: </label><input name=\"phone\" type=\"tel\" placeholder=\"####-###-###\" pattern = \"\d{4}-\d{3}-\d{3}\" required><br>" +
+	"</p>" +
+	"<p>" +
+		"<input type=\"submit\" class=\"button\" value=\"Submit\">" +
+		"<input type=\"submit\" class=\"button\" value=\"Cancel\">" +
+	"</p>" +
+	"</form>" +
+"<aside style=\"text-align: center;\">" +
+	"*You have to fill in the space" +
+"</aside>" +
+"</footer>");
+    </script>
+    <script src="register.js"></script>
+    <script>
+        var body = document.getElementsByTagName("body");
+        body[0].style.fontFamily = "Oswald"
+        var label = document.getElementsByTagName("label");
+        var input = document.getElementsByTagName("input");
+        var record = Array();
+        var record2 = Array();
+        var length = 9;
+
+        for (var i = 0; i < length; i++) {
+            record[i] = label[i].innerHTML;
+            record2[i] = input[i].outerHTML;
+        }
+
+        function Random() {
+            label = document.getElementsByTagName("label");
+            input = document.getElementsByTagName("input");
+            for (var i = 0; i < length; i++) {
+                var random = Math.floor((Math.random() * length));
+                var temp = label[i].innerHTML;
+                label[i].innerHTML = label[random].innerHTML;
+                label[random].innerHTML = temp;
+                var temp = input[i].outerHTML;
+                input[i].outerHTML = input[random].outerHTML;
+                input[random].outerHTML = temp;
+            }
+        }
+        function Sort() {
+            var choice = prompt("Please decide your sorting types", "Ascending or Descending");
+            label = document.getElementsByTagName("label");
+            input = document.getElementsByTagName("input");
+            var array = Array();
+            for (var i = 0; i < length; i++) {
+                if (label[i].innerHTML.charCodeAt(0) == 42) {
+                    array[i] = label[i].innerHTML.charCodeAt(1);
+                } else {
+                    array[i] = label[i].innerHTML.charCodeAt(0);
+                }
+            }
+            if (choice == "Ascending") {
+                for (var i = 0; i < length; i++) {
+                    var min = array[i];
+                    for (var j = i; j < length; j++) {
+                        if (array[j] < min) {
+                            min = array[j];
+                            array[j] = array[i];
+                            array[i] = min;
+                            var temp = label[i].innerHTML;
+                            label[i].innerHTML = label[j].innerHTML;
+                            label[j].innerHTML = temp;
+                            var temp = input[i].outerHTML;
+                            input[i].outerHTML = input[j].outerHTML;
+                            input[j].outerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice == "Descending") {
+                for (var i = 0; i < length; i++) {
+                    var max = array[i];
+                    for (var j = i; j < length; j++) {
+                        if (array[j] > max) {
+                            max = array[j];
+                            array[j] = array[i];
+                            array[i] = max;
+                            var temp = label[i].innerHTML;
+                            label[i].innerHTML = label[j].innerHTML;
+                            label[j].innerHTML = temp;
+                            var temp = input[i].outerHTML;
+                            input[i].outerHTML = input[j].outerHTML;
+                            input[j].outerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice != null) {
+                alert("The format isn't correct!");
+            }
+        }
+        function Reset() {
+            for (var i = 0; i < length; i++) {
+                label[i].innerHTML = record[i];
+            }
+            for (var i = 0; i < length; i++) {
+                input[i].outerHTML = record2[i];
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

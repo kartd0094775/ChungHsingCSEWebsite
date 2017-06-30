@@ -1,0 +1,195 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="國立中興大學資訊科學與工程系註冊教授群">
+    <meta name="keyword" content="中興大學, 資訊科學與工程, 中興資工, 中興">
+    <meta name="name" content="林凡煒">
+
+    <title>教授群 - 國立中興大學資訊科學與工程學系</title>
+
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<h1 id=\"top\">教授群 - 兼任</h1>");
+        document.writeln("<p><a href=\"index.html\">返回首頁</a>");
+        document.writeln("<a href=\"professor_english.html\">English page</a>");
+        document.writeln("</p>");
+        document.writeln("<hr>");
+        document.writeln("<p><nav><a href=\"professor-section1.html\">專任</a>");
+        document.writeln("<a href=\"professor-section2.html\">兼任</a>");
+        document.writeln("</nav></p>");
+        document.writeln("<table border=\"0\">");
+        document.writeln("<tbody>");
+        var professor = [
+            "曾怜玉 教授",
+            "黃博惠 終身榮譽特聘教授, Fellow IET",
+            "余明興 副教授"
+        ];
+        var degree = [
+            "國立清華大學資訊科學博士",
+            "美國南美以美大學計算機科學博士",
+            "國立台灣大學資訊工程博士"
+        ];
+        var experience = [
+            "交通部電信研究所助理研究員、工研院電子研究所副研究員、清華大學電機系講師、國立中興大學應用數學研究所教授",
+            "國立中興大學應用數學系暨研究所教授、國立中興大學資訊科學研究所教授、所長、國立虎尾科技大學副校長、國立中興大學主任秘書、國立中興大學理學院院長",
+            "國立中興大學應用數學系副教授"
+        ];
+        var expert = [
+            "Evolutionary Computation、Multimedia Systems & Applications、Bioinformatics、Pattern Recognition & Image Processing",
+            "Multimedia Database Design、Computer Vision and Inspection、Medical Image Analysis",
+            "Speech Processing、Natural Language Processing、Native Language Processing、Taiwan Common Language"
+        ];
+        var tel = [
+            "(04)2284-0497 ext 809 or 704",
+            "(04)2284-0497 ext 812",
+            "(04)2284-0497 ext 808"
+        ];
+        var website = [
+            "http://oblab.cs.nchu.edu.tw/OurBoss.htm",
+            "http://imdb.cs.nchu.edu.tw/teacher.php",
+            "http://speechlab.cs.nchu.edu.tw/Member.php?NID=8"
+        ];
+        var email = [
+            "lytseng@pu.edu.tw",
+            "powhei.huang@msa.hinet.net",
+            "msyu@dragon.nchu.edu.tw"
+        ];
+
+        for (var i = 0; i < professor.length; i++) {
+            var number = parseInt(i) + 1;
+            document.writeln("<tr><td>");
+            document.writeln("<img src=\"img/professor/" + number + " (1).jpg\">");
+            document.writeln("</td>");
+            document.writeln("<td>");
+            document.writeln("<canvas class=\"myCanvas\"></canvas>");
+            document.writeln("<h3>" + professor[i] + "</h3>");
+            document.writeln("<ul>");
+            document.writeln("<li>學歷：\t" + degree[i] + "</li>");
+            document.writeln("<li>經歷：\t" + experience[i] + "</li>");
+            document.writeln("<li>專長領域：\t" + expert[i] + "</li>");
+            document.writeln("<li>聯絡電話：\t" + tel[i] + "</li>");
+            document.writeln("<li>個人網頁：\t" + "<a href=\"" + website[i] + "\">" + website[i] + "</a></li>");
+            document.writeln("<li>電子信箱：\t" + "<a href=\"mailto:" + email[i] + "\">" + email[i] + "</a></li>");
+            document.writeln("</ul></td></tr>");
+
+        }
+        document.writeln("</tbody></table>");
+        document.writeln("<p><a href=\"#top\">回到頂端</a></p>");
+    </script>
+    <script>
+        var body = document.getElementsByTagName("body");
+        body[0].style.fontFamily = "Microsoft JhengHei";
+
+        var h1 = document.getElementsByTagName("h1");
+        h1[0].style.fontWeight = "lighter";
+        h1[0].style.fontSize = "3em";
+        h1[0].style.textAlign = "center";
+        h1[0].style.textShadow = "2px 2px 0.8px";
+        h1[0].style.color = "grey";
+
+        var h3 = document.getElementsByTagName("h3");
+        for (var i = 0; i < h3.length; i++) {
+            h3[i].style.textDecoration = "underline";
+        }
+
+        var img = document.getElementsByTagName("img");
+        for (var i = 0; i < img.length; i++) {
+            img[i].style.boxShadow = "-25px 25px 50px dimgrey";
+        }
+        function CanvasBackGrd() {
+            var canvas = document.getElementsByClassName("myCanvas");
+            for (var i = 0; i < canvas.length; i++) {
+                canvas[i].style.position = "absolute";
+                canvas[i].style.width = "100%";
+                canvas[i].style.height = "50%";
+                canvas[i].style.zIndex = "-1";
+                var ctx = canvas[i].getContext("2d");
+                var grd = ctx.createRadialGradient(200, 50, 10, 300, 60, 200);
+                grd.addColorStop(0, "orange");
+                grd.addColorStop(1, "white");
+                ctx.fillStyle = grd;
+                ctx.fillRect(10, 10, 1500, 1000);
+
+            }
+        }
+        CanvasBackGrd();
+        var tr = document.getElementsByTagName("tr");
+        var record = Array();
+        var length = tr.length;
+
+        for (var i = 0; i < length; i++) {
+            record[i] = tr[i].innerHTML;
+        }
+
+        function Random() {
+            tr = document.getElementsByTagName("tr");
+            for (var i = 0; i < length; i++) {
+                var random = Math.floor((Math.random() * length));
+                var temp = tr[i].innerHTML;
+                tr[i].innerHTML = tr[random].innerHTML;
+                tr[random].innerHTML = temp;
+            }
+            CanvasBackGrd();
+        }
+        function Sort() {
+            var choice = prompt("Please decide your sorting types", "Ascending or Descending");
+            var h3 = document.getElementsByTagName("h3");
+            var array = Array();
+            for (var i = 0; i < length; i++) {
+                array[i] = encodeURIComponent(h3[i].innerHTML.charAt(0));
+            }
+            if (choice == "Ascending") {
+                for (var i = 0; i < length; i++) {
+                    var min = array[i];
+                    for (var j = i; j < length; j++) {
+                        if (array[j] < min) {
+                            min = array[j];
+                            array[j] = array[i];
+                            array[i] = min;
+                            var temp = tr[i].innerHTML;
+                            tr[i].innerHTML = tr[j].innerHTML;
+                            tr[j].innerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice == "Descending") {
+                for (var i = 0; i < length; i++) {
+                    var max = array[i];
+                    for (var j = i; j < length; j++) {
+                        if (array[j] > max) {
+                            max = array[j];
+                            array[j] = array[i];
+                            array[i] = max;
+                            var temp = tr[i].innerHTML;
+                            tr[i].innerHTML = tr[j].innerHTML;
+                            tr[j].innerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice != null) {
+                alert("The format isn't correct!");
+            }
+            CanvasBackGrd();
+        }
+        function Reset() {
+            for (var i = 0; i < length; i++) {
+                tr[i].innerHTML = record[i];
+            }
+            CanvasBackGrd();
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

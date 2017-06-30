@@ -1,0 +1,180 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="National Chung-Hsing Universaity CSE Home page">
+    <meta name="keyword" content="National Chung-Hsing Universaity, Computer Science, Chung-Hsing CSE, Chung-Hsing">
+    <meta name="name" content="Fan-wei Lin">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <title>Home - National Chung-Hsing Universaity</title>
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+
+        document.writeln("<div id=\"background\"></div>");
+        document.writeln("<div>");
+        document.writeln("<img src=\"img/logo.png\" style=\"opacity: 0.6; z-index: -1;\">");
+        document.writeln("<h1>National Chung-Hsing Universaity</h1>");
+        document.writeln("</div>");
+
+        document.writeln("<div id=\"information\">");
+        document.writeln("<h6>Maintaince Time: <time>12:00</time></h6>");
+        document.writeln("</div>");
+
+        document.writeln("<div id=\"account\">");
+        document.writeln("<nav>");
+        document.writeln("<a href=\"register_english.html\">Register</a>");
+        document.writeln("<a href=\"login_english.html\">Login</a>");
+        document.writeln("<a href=\"index.html\">中文版</a>");
+        document.writeln("</nav>");
+        document.writeln("</div><br>");
+
+        document.writeln("<hr>");
+        document.writeln("<table border=\"0\">" +
+		"<tr>" +
+			"<nav>" +
+				"<td><a href=\"introduction_english.html\">Introduction</a></td>" +
+				"<td><a href=\"laboratory_english.html\">Laboratory</a></td>" +
+				"<td><a href=\"professor_english.html\">Professor</a></td>" +
+				"<td><a href=\"contact_english.html\">Contact us</a></td>" +
+				"<td><a href=\"guest_english.html\">Guest message</a></td>" +
+			"</nav>" +
+			"</tr>" +
+        "</table>");
+    </script>
+    <script>
+        var body = document.getElementsByTagName("body");
+        body[0].style.fontFamily = "Oswald";
+
+        var h1 = document.getElementsByTagName("h1");
+        h1[0].style.fontSize = "3em";
+        h1[0].style.fontWeight = "lighter";
+        h1[0].style.top = "0px";
+        h1[0].style.color = "grey";
+        h1[0].style.marginLeft = "3cm";
+        h1[0].style.position = "absolute";
+
+        var td = document.getElementsByTagName("td");
+        var length = td.length;
+
+        for (var i = 0; i < length; i++) {
+            td[i].style.transition = "0.5s all";
+            td[i].style.color = "darkblue";
+            td[i].style.border = "2px solid";
+            td[i].style.borderRadius = "50px";
+            td[i].style.marginLeft = "1cm";
+            td[i].style.fontSize = "1.2em";
+            td[i].style.textAlign = "center";
+            td[i].style.textDecoration = "none";
+            (function (i) {
+                td[i].addEventListener("mouseover", function () {
+                    td[i].style.backgroundColor = "pink";
+                });
+                td[i].addEventListener("mouseout", function () {
+                    td[i].style.backgroundColor = "transparent"
+                });
+            }(i));
+        }
+ 
+        var a = document.getElementsByTagName("a");
+        for (var i = 0; i < a.length; i++) {
+            a[i].style.textDecoration = "none";
+            a[i].style.fontWeight = "bold";
+            a[i].style.color = "darkblue";
+        }
+        var background = document.getElementById("background");
+        background.style.backgroundImage = "url(\"img/index/background-01.JPG\")";
+        background.style.backgroundSize = "100%";
+        background.style.backgroundRepeat = "no-repeat";
+        background.style.zIndex = "-2";
+        background.style.position = "fixed";
+        background.style.height = "100%";
+        background.style.width = "100%";
+        background.style.filter = "alpha";
+        background.style.opacity = "0.4";
+
+        var information = document.getElementById("information");
+        information.style.cssFloat = "right";
+
+        var account = document.getElementById("account");
+        account.style.cssFloat = "left";
+
+        
+    </script>
+    <script>
+        var record = Array();
+        var td = document.getElementsByTagName("td");
+        var length = td.length;
+
+        for (var i = 0; i < length; i++) {
+            record[i] = td[i].innerHTML;
+        }
+        function Random() {
+            for (var i = 0; i < length; i++) {
+                var random = Math.floor((Math.random() * length));
+                td = document.getElementsByTagName("td");
+                var temp = td[i].innerHTML;
+                td[i].innerHTML = td[random].innerHTML;
+                td[random].innerHTML = temp;
+            }
+        }
+        function Sort() {
+            var choice = prompt("Please decide your sorting types", "Ascending or Descending");
+            td = document.getElementsByTagName("td");
+            var array = Array();
+            for (var i = 0; i < length; i++) {
+                array[i] = td[i].getElementsByTagName("a")[0].innerHTML.charCodeAt(0);
+            }
+            if (choice == "Ascending") {
+                for (var i = 0; i < length; i++) {
+                    var min = array[i];
+                    for (var j = i; j < length; j++) {
+                        if (array[j] < min) {
+                            min = array[j];
+                            array[j] = array[i];
+                            array[i] = min;
+                            var temp = td[i].innerHTML;
+                            td[i].innerHTML = td[j].innerHTML;
+                            td[j].innerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice == "Descending") {
+                for (var i = 0; i < length; i++) {
+                    var max = array[i];
+                    for (var j = i; j < length; j++) {
+                        if (array[j] > max) {
+                            max = array[j];
+                            array[j] = array[i];
+                            array[i] = max;
+                            var temp = td[i].innerHTML;
+                            td[i].innerHTML = td[j].innerHTML;
+                            td[j].innerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice != null) {
+                alert("The format isn't correct!");
+            }
+        }
+        function Reset() {
+            for (var i = 0; i < length; i++) {
+                td[i].innerHTML = record[i];
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

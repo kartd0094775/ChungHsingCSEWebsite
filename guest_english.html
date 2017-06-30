@@ -1,0 +1,65 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="National Chung-Hsing Universaity CSE Guest Message">
+    <meta name="keyword" content="National Chung-Hsing Universaity, Computer Science, Chung-Hsing CSE, Chung-Hsing">
+    <meta name="name" content="Fan-wei Lin">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+    <title>Guest Message - National Chung-Hsing Universaity</title>
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<div id=\"background\"></div>");
+        document.writeln("	<h1>Guest Message</h1>" +
+	"<hr>" +
+	"<div>" +
+		"<nav>" +
+			"<a href=\"index_english.html\">Back to <em>HOME</em> page</a>" +
+			"<a href=\"guest.html\">中文版</a>" +
+		"</nav>" +
+	"</div>" +
+	"<form method=\"post\">" +
+		"<p>" +
+			"<label>Guest Name: " +
+			"<input type=\"text\" name=\"name\" size=\"25\" required>" +
+			"</label>" +
+		"</p>" +
+		"<p>" +
+			"<label>Guest E-mail: " +
+			"<input type=\"text\" name=\"email\" size=\"25\" placeholder=\"abc@mail.nchu.edu.tw\">" +
+			"</label>" +
+		"</p>" +
+		"<p" +
+			"<label>" +
+				"Guest Message：<br>" +
+			"<textarea name=\"comments\" rows=\"10\" cols=\"48\">" +
+			"</textarea>" +
+			"</label>" +
+		"</p>" +
+	"<p>" +
+		"<input type=\"submit\" class=\"button \" value=\"Submit\">" +
+		"<input type=\"submit\" class=\"button\" value=\"Cancel\">" +
+	"</p>" +
+	"</form>"
+        );
+    </script>
+    <script src="guest.js"></script>
+    <script>
+        var body = document.getElementsByTagName("body");
+        body[0].style.fontFamily = "Oswald"
+    </script>
+</head>
+<body>
+
+</body>
+</html>

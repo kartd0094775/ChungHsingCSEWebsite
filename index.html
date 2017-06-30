@@ -1,0 +1,134 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="國立中興大學資訊科學與工程系首頁">
+    <meta name="keyword" content="中興大學, 資訊科學與工程, 中興資工, 中興">
+    <meta name="name" content="林凡煒">
+    <title>首頁 - 國立中興大學資訊科學與工程學系</title>
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+
+        document.writeln("<div id=\"background\"></div>");
+        document.writeln("<div>");
+        document.writeln("<img src=\"img/logo.png\" style=\"opacity: 0.6; z-index: -1;\">");
+        document.writeln("<h1>國立中興大學資訊科學與工程學系</h1>");
+        document.writeln("</div>");
+
+        document.writeln("<div id=\"information\">");
+        document.writeln("<h6>維護時間：<time>12:00</time></h6>");
+        document.writeln("<h6>瀏覽人數：<meter max=\"100\" value=\"50\"></meter></h6>");
+        document.writeln("</div>");
+
+        document.writeln("<div id=\"account\">");
+        document.writeln("<nav>");
+        document.writeln("<a href=\"register.html\">註冊</a>");
+        document.writeln("<a href=\"login.html\">登入</a>");
+        document.writeln("<a href=\"index_english.html\">English page</a>");
+        document.writeln("</nav>");
+        document.writeln("</div><br>");
+
+        document.writeln("<hr>");
+        var label = new Array();
+        label = ["最新消息", "本系介紹", "課程地圖", "本系機構", "教授群", "聯絡我們"];
+        document.writeln("<table>");
+        document.writeln("<tbody>");
+        document.writeln("<tr>");
+        for (var i = 0; i < label.length; i++) {
+            document.writeln("<td class=\"option\">" + label[i]);
+            document.writeln("<ul></ul>");
+            document.writeln("</td>");
+        }
+        document.writeln("</tr>");
+        document.writeln("</tbody>");
+        document.writeln("</table>");
+        var ul = document.getElementsByTagName("ul");
+        document.write(ul[0].innerHTML);
+        ul[0].innerHTML = "<li><a href=\"news.html\">系上新聞</a></li>";
+        ul[1].innerHTML = "<li><a href=\"introduction.html\">簡介</a></li>";
+        ul[2].innerHTML = "<li><a href=\"curriculum-bachelor.html\">大學部</a></li>";
+        ul[2].innerHTML += "<li><a href=\"curriculum-master.html\">碩士班</a></li>";
+        ul[2].innerHTML += "<li><a href=\"curriculum-academic.html\">博士班</a></li>";
+        ul[3].innerHTML = "<li><a href=\"laboratory.html\">實驗室</a></li>";
+        ul[4].innerHTML = "<li><a href=\"professor-section1.html\">兼任</a></li>";
+        ul[4].innerHTML += "<li><a href=\"professor-section2.html\">專任</a></li>";
+        ul[5].innerHTML = "<li><a href=\"contact.html\">聯絡方式</a></li>";
+        ul[5].innerHTML += "<li><a href=\"guest.html\">訪客留言</a></li>";
+    </script>
+    <script src="index.js"></script>
+    <script>
+        var record = Array();
+        var option = document.getElementsByClassName("option");
+        for (var i = 0; i < 6; i++) {
+            record[i] = option[i].innerHTML;
+        }
+        function Random() {
+            for (var i = 0; i < 6; i++) {
+                var random = Math.floor((Math.random() * 6));
+                option = document.getElementsByClassName("option");
+                var temp = option[i].innerHTML;
+                option[i].innerHTML = option[random].innerHTML;
+                option[random].innerHTML = temp;
+            }
+        }
+        function Sort() {
+            var choice = prompt("Please decide your sorting types", "Ascending or Descending");
+            option = document.getElementsByClassName("option");
+            var array = Array();
+            for (var i = 0; i < 6; i++) {
+                array[i] = encodeURIComponent(option[i].innerHTML.charAt(0));
+            }
+            if (choice == "Ascending") {
+                for (var i = 0; i < 6; i++) {
+                    var min = array[i];
+                    for (var j = i; j < 6; j++) {
+                        if (array[j] < min) {
+                            min = array[j];
+                            array[j] = array[i];
+                            array[i] = min;
+                            var temp = option[i].innerHTML;
+                            option[i].innerHTML = option[j].innerHTML;
+                            option[j].innerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice == "Descending") {
+                for (var i = 0; i < 6; i++) {
+                    var max = array[i];
+                    for (var j = i; j < 6; j++) {
+                        if (array[j] > max) {
+                            max = array[j];
+                            array[j] = array[i];
+                            array[i] = max;
+                            var temp = option[i].innerHTML;
+                            option[i].innerHTML = option[j].innerHTML;
+                            option[j].innerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice != null) {
+                alert("The format isn't correct!");
+            }
+        }
+        function Reset() {
+            for (var i = 0; i < 6; i++) {
+                option[i].innerHTML = record[i];
+            }
+        }
+
+    </script>
+    
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="國立中興大學資訊科學與工程系登入頁面">
+    <meta name="keyword" content="中興大學, 資訊科學與工程, 中興資工, 中興">
+    <meta name="name" content="林凡煒">
+
+    <title>登入 - 國立中興大學資訊科學與工程學系</title>
+
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<div class=\"background\">" +
+	"<h1>登入</h1>" +
+	"<p>" +
+		"<nav>" +
+			"<a href=\"index.html\">返回首頁</a>" +
+			"<a href=\"login_english.html\">English page</a>" +
+		"</nav>" +
+	"</p>" +
+	"<hr>" +
+	"<div>" +
+		"<form method =\"post\" autocomplete=\"on\">" +
+		"<p>" +
+			"<label>帳號：</label><input name=\"username\" type =\"text\" size=\"25\" maxlength=\"30\" required><br>" +
+		"</p>" +
+		"<p>" +
+			"<label>密碼：</label><input name=\"password\" type=\"password\" size=\"25\" maxlength=\"30\" required><br>" +
+		"</p>" +
+		"<p>" +
+			"<input type=\"submit\" class=\"button\" value=\"確認\">" +
+			"<input type=\"submit\" class=\"button\" value=\"取消\">" +
+			"<a href=\"forget.html\" style=\"margin: 10px;\">忘記密碼</a>" +
+		"</p>" +
+		"</form>" +
+	"</div>");
+    </script>
+    <script src="login.js"></script>
+    <script>
+
+    var label = document.getElementsByTagName("label");
+    var record = Array();
+    var length = 2;
+
+    for (var i = 0; i < length; i++) {
+        record[i] = label[i].innerHTML;
+    }
+
+    function Random() {
+    	label = document.getElementsByTagName("label");
+        for (var i = 0; i < length; i++) {
+            var random = Math.floor((Math.random() * length));
+            var temp = label[i].innerHTML;
+            label[i].innerHTML = label[random].innerHTML;
+            label[random].innerHTML = temp;
+        }
+    }
+    function Sort() {
+        var choice = prompt("Please decide your sorting types", "Ascending or Descending");
+        label = document.getElementsByTagName("label");
+        var array = Array();
+        for (var i = 0; i < length; i++) {
+            array[i] = encodeURIComponent(label[i].innerHTML.charAt(0));
+        }
+        if (choice == "Ascending") {
+            for (var i = 0; i < length; i++) {
+                var min = array[i];
+                for (var j = i; j < length; j++) {
+                    if (array[j] < min) {
+                        min = array[j];
+                        array[j] = array[i];
+                        array[i] = min;
+                        var temp = label[i].innerHTML;
+                        label[i].innerHTML = label[j].innerHTML;
+                        label[j].innerHTML = temp;
+                    }
+                }
+            }
+        } else if (choice == "Descending") {
+            for (var i = 0; i < length; i++) {
+                var max = array[i];
+                for (var j = i; j < length; j++) {
+                    if (array[j] > max) {
+                        max = array[j];
+                        array[j] = array[i];
+                        array[i] = max;
+                        var temp = label[i].innerHTML;
+                        label[i].innerHTML = label[j].innerHTML;
+                        label[j].innerHTML = temp;
+                    }
+                }
+            }
+        } else if (choice != null) {
+            alert("The format isn't correct!");
+        }
+    }
+    function Reset() {
+        for (var i = 0; i < length; i++) {
+            label[i].innerHTML = record[i];
+        }
+    }
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

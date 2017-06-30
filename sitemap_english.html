@@ -1,0 +1,148 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="National Chung-Hsing Universaity CSE Sitemap ">
+    <meta name="keyword" content="National Chung-Hsing Universaity, Computer Science, Chung-Hsing CSE, Chung-Hsing">
+    <meta name="name" content="Fan-wei Lin">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <title>Sitemap - National Chung-Hsing Universaity</title>
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<h1>Sitemap</h1>" +
+	"<a href=\"sitemap.html\" style=\"background-color: grey;\">中文版</a>" +
+	"<hr>" +
+	"<div>" +
+		"<a href=\"index_english.html\" style=\"background-color: pink;\">Home page</a>" +
+		"<ul>" +
+			"<li><a href=\"register_english.html\">Register page</a></li>" +
+			"<li><a href=\"login_english.html\">Login page</a></li>" +
+			"<li><a href=\"introduction_english.html\">Introduction</a></li>" +
+			"<li><a href=\"laboratory_english.html\">Laboratory</a></li>" +
+			"<li><a href=\"professor_english.html\">Professor</a></li>" +
+			"<li><a href=\"contact_english.html\">Contact us</a></li>" +
+			"<li><a href=\"guest_english.html\">Guest message</a></li>" +
+		"</ul>");
+    </script>
+    <script>
+        var body = document.getElementsByTagName("body");
+        body[0].style.fontFamily = "Oswald";
+        body[0].style.backgroundColor = "#cccccc";
+
+        var h1 = document.getElementsByTagName("h1");
+        h1[0].style.textAlign = "center";
+
+        var div = document.getElementsByTagName("div");
+        for (var i = 0; i < div.length; i++) {
+            div[i].style.marginLeft = "5cm";
+        }
+
+        var a = document.getElementsByTagName("a");
+        for (var i = 0; i < a.length; i++) {
+            if (i != 1) {
+                a[i].style.backgroundColor = "yellow";
+            }
+            a[i].style.border = "3px";
+            a[i].style.padding = "5px 20px";
+            a[i].style.borderRadius = "50px";
+        }
+
+        var li = document.getElementsByTagName("li");
+        for (var i = 0; i < li.length; i++) {
+            li[i].style.marginLeft = "1cm";
+            li[i].style.marginBottom = "0.5cm";
+            li[i].style.listStyle = "none";
+        }
+        var span = document.getElementsByTagName("span");
+        for (var j = 0; j < span.length; j++) {
+            var a = span[j].getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                a[i].style.backgroundColor = "orange";
+            }
+        }
+        var ul = document.getElementsByTagName("ul");
+        for (var i = 0; i < ul.length; i++) {
+            ul[i].style.marginLeft = "0.5cm";
+            ul[i].style.marginTop = "1cm";
+        }
+    </script>
+    <script>
+        var ul = document.getElementsByTagName("ul");
+
+        var li = ul[0].childNodes;
+        var record = Array();
+        var length = li.length;
+
+        for (var i = 0; i < length; i++) {
+            record[i] = li[i].innerHTML;
+        }
+
+        function Random() {
+            li = ul[0].childNodes;
+            for (var i = 0; i < length; i++) {
+                var random = Math.floor((Math.random() * length));
+                var temp = li[i].innerHTML;
+                li[i].innerHTML = li[random].innerHTML;
+                li[random].innerHTML = temp;
+            }
+        }
+        function Sort() {
+            var choice = prompt("Please decide your sorting types", "Ascending or Descending");
+            var li = ul[0].childNodes;
+            var array = Array();
+            for (var i = 0; i < length; i++) {
+                array[i] = li[i].innerText.charCodeAt(0);
+            }
+            if (choice == "Ascending") {
+                for (var i = 0; i < length; i++) {
+                    var min = array[i];
+                    for (var j = i; j < length; j++) {
+                        if (array[j] < min) {
+                            min = array[j];
+                            array[j] = array[i];
+                            array[i] = min;
+                            var temp = li[i].innerHTML;
+                            li[i].innerHTML = li[j].innerHTML;
+                            li[j].innerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice == "Descending") {
+                for (var i = 0; i < length; i++) {
+                    var max = array[i];
+                    for (var j = i; j < length; j++) {
+                        if (array[j] > max) {
+                            max = array[j];
+                            array[j] = array[i];
+                            array[i] = max;
+                            var temp = li[i].innerHTML;
+                            li[i].innerHTML = li[j].innerHTML;
+                            li[j].innerHTML = temp;
+                        }
+                    }
+                }
+            } else if (choice != nlil) {
+                alert("The format isn't correct!");
+            }
+        }
+        function Reset() {
+            for (var i = 0; i < length; i++) {
+                li[i].innerHTML = record[i];
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

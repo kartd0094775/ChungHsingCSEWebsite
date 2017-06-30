@@ -1,0 +1,331 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="國立中興大學資訊科學與工程系實驗室">
+    <meta name="keyword" content="中興大學, 資訊科學與工程, 中興資工, 中興">
+    <meta name="name" content="林凡煒">
+
+    <title>實驗室 - 國立中興大學資訊科學與工程學系</title>
+
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<p><h1 id=\"top\">實驗室</h1>");
+        document.writeln("<nav><a href=\"index.html\">返回首頁</a>");
+        document.writeln("<a href=\"laboratory_english.html\">English page</a>");
+        document.writeln("</nav></p>");
+        document.writeln("<hr>");
+        document.writeln("<table border=\"0\">");
+        var lab = ["網路與交換系統實驗室 Network and Switch Systems lab",
+            "影像處理及多媒體資料庫實驗室 Image Processing and Multimedia Database Lab",
+            "資訊安全實驗室 Information Security Lab",
+            "醫學影像處理實驗室 Medical Image Processing Lab",
+            "超大型積體電路/電腦輔助設計實驗室 VLSI/CAD Lab",
+            "人工智慧實驗室 Artificial Intelligence Lab",
+            "圖學多媒體暨虛擬實境實驗室 Graphics, Multimedia &amp Virtual Reality Lab",
+            "資料挖掘與知識工程實驗室 Data Mining &amp Knowledge Engineering Lab",
+            "資料工程實驗室 Data Engineering Laboratory",
+            "系統暨網路管理實驗室 Systems &amp Network Management Lab",
+            "系統單晶片實驗室 System On Chip Lab",
+            "語音語言實驗室 Speech &amp Language Lab",
+            "低功率計算機結構實驗室 Low-Power Computer Architecture Lab",
+            "系統與網路實驗室 System &amp Network Lab",
+            "網路運算實驗室 Network Computing Laboratory",
+            "訊號與影像處理實驗室 Signal and Image Processing Lab",
+            "前瞻無線資訊網路實驗室 Advanced Wireless Information Networks Laboratory",
+            "電腦視覺暨多媒體實驗室 Computer Vision and Multimedia Lab",
+            "無線通訊暨雲端計算實驗室 Wireless Communication &amp Cloud Computing Lab",
+            "普及資料與智慧運算實驗室 Ubiquitous Data And Intelligent Computing Lab",
+            "最佳化與生物資訊實驗室 Optimization and Bioinformatics Lab"
+        ];
+        var professor = [ "林偉", "黃博惠", "詹進科", "喻石生", "王行健", "洪國寶", "王宗銘",
+            "廖宜恩", "賈坤芳", "高勝助", "黃德成", "余明興", "張延任", "張軒彬", "王丕中",
+            "吳俊霖", "陳 煥", "黃春融", "曾學文", "范耀中", "曾怜玉"
+        ];
+        var address = [ "理學大樓 903[分機 903]",
+            "理學大樓 722[分機 722]",
+            "理學大樓 720[分機 720]",
+            "理學大樓 1022A[分機 622]",
+            "理學大樓 922A[分機 922]",
+            "理學大樓 922B[分機 924]",
+            "理學大樓 904[分機 904]",
+            "理學大樓 702B[分機 715]",
+            "理學大樓 902[分機 902]",
+            "理學大樓 702B[分機 715]",
+            "理學大樓 1004[分機 625]",
+            "理學大樓 723[分機 723]",
+            "理學大樓 1003B[分機 601]",
+            "理學大樓 1003A[分機 603]",
+            "理學大樓 721[分機 721]",
+            "理學大樓 1022B[分機 623]",
+            "理學大樓 901A[分機 925]",
+            "理學大樓 702C[分機 716]",
+            "理學大樓 901B[分機 901]",
+            "理學大樓 1007[分機 605]",
+            "理學大樓 702C[分機 716]"
+        ];
+        var url = [ "http://syslab.cs.nchu.edu.tw/",
+            "http://imdb.cs.nchu.edu.tw/",
+            "http://securitylab.cs.nchu.edu.tw/",
+            "http://miplab.cs.nchu.edu.tw/",
+            "http://vlsilab.cs.nchu.edu.tw/",
+            "http://ailab.cs.nchu.edu.tw/",
+            "http://gmvr.cs.nchu.edu.tw/",
+            "http://dmlab.cs.nchu.edu.tw/",
+            "http://delab.cs.nchu.edu.tw/new_mainpage/index.html",
+            "http://snmlab.cs.nchu.edu.tw/",
+            "http://soc.cs.nchu.edu.tw/",
+            "http://speechlab.cs.nchu.edu.tw/",
+            "http://lpca.cs.nchu.edu.tw/",
+            "http://osnet.cs.nchu.edu.tw/",
+            "http://nclab.cs.nchu.edu.tw/",
+            "http://siplab.cs.nchu.edu.tw/",
+            "http://awin.cs.nchu.edu.tw",
+            "http://cvml.cs.nchu.edu.tw/",
+            "http://wccclab.cs.nchu.edu.tw",
+            "http://udiclab.cs.nchu.edu.tw/",
+            "http://oblab.cs.nchu.edu.tw/"
+        ];
+
+        for (var i in lab) {
+            var number = parseInt(i) + 1;
+            document.writeln("<tr id=\"" + number + "\">");
+            document.writeln("<td>");
+            document.writeln("<img src=\"img/" + number + ".jpg\">");
+            document.writeln("</td>");
+            document.writeln("<td><strong><h3>" + lab[i] + "</h3></strong>");
+            document.writeln("<ul>");
+            document.writeln("<li>指導教授：\t" + professor[i] + "</li>");
+            document.writeln("<li>位置：\t" + address[i] + "</li>");
+            document.writeln("<li>網址：\t" + "<a href=\"" + url[i] + "\">" + url[i] + "</a></li>");
+            document.writeln("<li></li>");
+            document.writeln("</ul></td></tr>");
+        }
+        document.writeln("</table>");
+        document.writeln("<p><a href=\"#top\">回到頂端</a></p>");
+
+        var id1 = document.getElementById("1");
+        var li = id1.getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室主要從事High-performance Network Switching systems及Network QoS與Interconnection Networks之研究。<wbr>並培養學生擁有計算機組織、平行處理、高速交換技術及交連網路等專業知識。        目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>探討研究高速交換器、IP路由器、及光交換器之基本原理、架構及技術。</li>" +
+            "<li>研究有效、經濟的網路資源控制機置方法用以達到及滿足所需求的網路效能及可靠性。</li>" +
+            "<li>研究各種連接多重處理器、嵌入式SOC之通訊網路。探討如何利用通訊資源提供高頻寬、低延遲之資料交換。</li>" +
+            "</ol>";
+        
+        var li = document.getElementById("2").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室之目標，除了致力於影像處理相關理論分析及技術研發外，亦十分重視實務整合系統之建置，並應用於醫療診斷e化及半導體製程精密檢測。本實驗團隊目前與台中榮民總醫院合作，藉由整合電腦視覺與醫學領域的專門知識，輔助醫師進行更精確的診斷與療程規劃。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>多媒體資料庫設計與擷取系統</li>" +
+            "<li>醫學影像處理與醫學影像資料庫研究</li>" +
+            "<li>數位浮水印及資訊隱藏影像技術研發</li>" +
+            "<li>電腦視覺與自動化工業檢測研發</li>" +
+            "</ol>";
+
+        var li = document.getElementById("3").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室十幾年來主要從事資訊安全技術之研發，最早期從存取控制之研究入門，接著研究資料壓縮，然後是數位簽章、電子投票、金鑰信託、電子現金、行動通訊、通行碼相互認證、網路競標、可證明安全之協定設計及數位產權管理等。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>博士生往密碼學理論方向深入研究</li>" +
+            "<li>而碩士生則以應用網路安全與密碼學相關技術之研發為尚</li>" +
+            "</ol>";
+
+        var li = document.getElementById("4").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室主要從事醫學影像處理及辨識之研究。由醫學影像處理至特徵擷取，再到圖形識別及統計分析來建構專家系統。研究重點在訓練學生具備醫學影像分析與處理、影像擷取、影像浮水印及影像加密等能力，進而達到影像辨識之目的。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>醫學影像處理及識別</li>" +
+            "<li>影像安全</li>" +
+            "<li>生物資訊</li>" +
+            "<li>自動機應用</li>" +
+            "</ol>";
+
+        var li = document.getElementById("5").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室主要從事VLSI設計、驗證、測試、及設計自動化軟體技術之研發。主要研究範圍包括低功率設計、低功率測試、測試資料壓縮、內建自我測試技術、掃瞄測試、延遲測試、與實體繞線等。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>超大型積體電路設計：電路與邏輯設計、FPGA設計、容錯系統、低功率電路設計。</li>" +
+            "<li>驗證：正規驗證、功能驗證、時間驗證。</li>" +
+            "<li>數位電路 / 系統單晶片測試：測試資料壓縮、低功率測試、內建自我測試、可測試設計、記憶體測試</li>" +
+            "<li>電腦輔助設計：高階合成、邏輯合成、實體合成。</li>" +
+            "</ol>";
+
+        var li = document.getElementById("6").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：人工智慧實驗室的發展特色為「人工智慧在資訊安全上的應用」，針對人工智慧的研究應用到安全方面討論。由於網路發達使得駭客入侵無所不在，因此資 訊安全更形重要，需要更多人工智慧方法應用到資訊安全領域。例如使用資料探勘或灰色理論於入侵偵測系統(IDS)或入侵預測系統(IPS)，可找出網路攻擊的相關行為規則，達到偵測與預防的效果。人工智慧發展由來已久，在資訊安全領域方面大有可為。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>資訊安全(Information security)之數位群簽、匿名等研究</li>" +
+            "<li>資料隱藏(Data Hiding) 之實作與研究</li>" +
+            "<li>無線網路安全(Wireless network security) 之實作與研究</li>" +
+            "<li>機器人應用 (Robot Applications) 之研究</li>" +
+            "</ol>";
+
+        var li = document.getElementById("7").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室研究電腦圖學、多媒體與虛擬實境領域之相關議題。研究的成果可應用於影像處理、製作電腦遊戲或動畫、秘密通訊、保護三維模型智慧財產權。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>影像色彩組：研究灰階影像著色技巧、利用色彩移改變目標影像之色彩、中國水墨畫模擬；</li>" +
+            "<li>材質紋理組：研究材質合成、材質轉移、自然界雲層模擬；</li>" +
+            "<li>三維模型組：研究二維向量圖、三維多面體、三維點模型的浮水印與資訊隱藏。</li>" +
+            "</ol>";
+
+        var li = document.getElementById("8").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：人類面臨資料爆炸時代，所最需要的工具，即是資料挖掘與機器學習的技術。本實驗室著重在培養學生以資料庫技術收集大量資料，並運用資料挖掘技術，從資料庫中找出隱含的有用知識或型樣。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>資料庫效能調校之研究：著重在開放源碼資料庫管理系統PostgreSQL上建立索引調校之新方法與工具。</li>" +
+            "<li>XML資料庫之研究：著重在正規化理論、索引技術、嵌入式XML資料庫實作、以及電子商務應用。</li>" +
+            "<li>無線通訊之研究：著重在定位系統、情境感知服務、資訊安全、感測網路與隨意網路之資料處理。</li>" +
+            "<li>資料挖掘之研究：著重在演算法、個人化搜尋、推薦系統、社交網路分析、生物資訊等議題之研究。</li>" +
+            "</ol>";
+
+        var li = document.getElementById("9").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室以研發資料工程及系統技術為宗旨，涵蓋理論、分析、設計、實作、模擬實驗與應用等特色。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>XML Native Database。</li>" +
+            "<li>Data Mining and its Applications。</li>" +
+            "<li>Cloud Computing。</li>" +
+            "<li>Data Stream Management System。</li>" +
+            "</ol>";
+
+        var li = document.getElementById("10").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室的研究主要在基礎理論的培養與加強實務技術能力，探討系統與網路管理和虛擬化叢集運算的相關研究。另外，在時間的許可下，我們也會進行資訊科技相關之合作計畫。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>系統與網路管理：如，安全管理、服務品質管理、行動通訊管理和車載網路管理…等等。</li>" +
+            "<li>雲端運算技術與應用：如，虛擬機器動態配置、虛擬機器檔案系統管理、虛擬化叢集建置和雲端系統相關應用…等等。</li>" +
+            "</ol>";
+
+        var li = document.getElementById("11").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室主要從事系統晶片與積體電路之研發與測試，除了建立學生紮實的電路測試觀念與技術外，對於IC設計議題及電腦輔助軟體(CAD)之應用亦有培養。我們的研究精神首要著重於方法論(Methodology)的推導與建立，其次是理論與實務上的發展。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>系統晶片(System-on-Chip)之設計、測試與驗證</li>" +
+            "<li>可容錯性(Fault Tolerance)系統與VLSI電路設計</li>" +
+            "<li>資訊與網路安全晶片設計與方法論研究</li>" +
+            "<li>多媒體晶片設計與測試</li>" +
+            "</ol>";
+
+        var li = document.getElementById("12").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：研究的領域以語音、語言的各種處理為主。目前針對台灣社會常用的語言為研究主題，包含台語、國語、客語等；預計發展一套適用於書寫台灣通行語言的系統（國、台、客語等），稱為台灣共通語言。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>文句處理：斷詞、標註詞性、詞義判別、文句剖析。</li>" +
+            "<li>智慧型國台語輸入法：無聲調輸入、多種拼音方式並存、多種語言混合輸入(不需切換)。</li>" +
+            "<li>台語文轉音(TTS)系統：建構國台語對照詞典、國台語文句轉換、字轉音、變調處理、韻律產生、合成單元選取、語音合成。</li>" +
+            "<li>國台語語音辯識：語音訊號辨識、音轉字、語言模型。</li>" +
+            "</ol>";
+
+        var li = document.getElementById("13").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室現階段以低功率計算機結構與低功率積體電路設計為主要的研究目標，除了研究導向外，更結合實做技術，積極參與產學合作計畫。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>低功率積體電路設計與分析 (Low Power VLSI Design &amp Analysis)</li>" +
+            "<li>低功率計算機結構設計與改良 (Low Power Computer Architecture Design &amp Improvement)</li>" +
+            "<li>低功率記憶體設計 (Low Power SRAM &amp CAM)</li>" +
+            "<li>低功率嵌入式系統 (Embedded System) 與系統晶片 (SoC) 設計</li>" +
+            "</ol>";
+
+        var li = document.getElementById("14").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室主要的研究領域為作業系統、嵌入式系統與計算機網路，並探討彼此之間的支援與相互應用。在系統方面，希望培養學生瞭解系統運作的知識與技術外；在計算機網路方面，我們著重於通訊協定的研究，培養學生瞭解網路通訊架構的運作。我們的研究精神主要著重於實務上的發展，著重學生的創新與實作技術，其次是理論探討與模擬驗證。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>感應網路系統的動態更新與下載研究</li>" +
+            "<li>異質性網路下TCP/IP的研究</li>" +
+            "<li具備自我修復能力的無線感測系統</li>" +
+            "</ol>";
+
+        var li = document.getElementById("15").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室研究的核心議題是IP Packet Forwarding，從議題包含路由搜尋、封包分類等子議題，除了建立相關理論基礎外，並配合實作以達到理論與實務能力兼備。在其他領域方面則有P2P演算法與Wireless Ad Hoc網路架構之開發，實驗室亦提供Zigbee與RFID設備讓學生能從事相關實作與應用的開發。希望讓實驗室同學能夠學到獨立思考與解決問題的方法，同時具備紥實的實作能力。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>高速網路封包傳送 (Fast IP Packet Forwarding)</li>" +
+            "<li>防火牆 (Firewall)</li>" +
+            "<li>點對點技術 (P2P)</li>" +
+            "<li>自組織無線網路 (Wireless Ad Hoc Routing)</li>" +
+            "<li>群蜂與無線射頻識別技術 (Zigbee and RFID)</li>" +
+            "</ol>";
+
+        var li = document.getElementById("16").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：簡稱「SIP 實驗室」。隨著電腦硬體效能的提昇以及影像感光元件等相關技術的蓬勃發展，各種數位影像等多媒體資訊與其相關應用如雨後春筍般出現。為了有效率的自動化處理龐大繁雜的多媒體資訊，本實驗室將研究重點放在影像處理、圖訊識別、訊號處理與資料壓縮等相關領域。未來期許將對學術理論發表及相關產業技術提升做最大努力，而有所貢獻。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>高動態範圍影像 (High Dynamic Range Images) 之合成與相關應用。</li>" +
+            "<li>計算攝影學(Computational Photography)。</li>" +
+            "<li>數位影像處理、影像校正(Image Registration)、雜訊去除與影像分割。</li>" +
+            "<li>航測與高維度遙測影像分析 (Hyperspectral Image Analysis) 與影像識別。</li>" +
+            "<li>生醫影像處理。</li>" +
+            "<li>多媒體資料壓縮。</li>" +
+            "</ol>";
+
+        var li = document.getElementById("17").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室主要分成前瞻研究組與關鍵技術發展組，強調團隊合作與分工、團隊領導與專案規劃與團體相處。論文題目包括: 網路最佳化、無線感測網路、生醫訊號處理與應用、嵌入式系統開發、Android 手機程式設計、資訊安全、雲端應用。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>無線網路與最佳化研究</li>" +
+            "<li>生醫訊號處理與生醫感測網路</li>" +
+            "<li>智慧型手機與雲端應用服務開發關鍵技術</li>" +
+            "</ol>";
+
+        var li = document.getElementById("18").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室為電腦視覺暨多媒體實驗室，主要進行有關電腦視覺、多媒體訊號處理、影像處理、醫學影像處理與相關應用之研究，並根據上述領域之研究議題進行演算法的開發以及程式的實作。希望讓實驗室同學能夠學習到如何針對問題獨立思考並發展解決問題的方法，再透過視窗程式進行實作，最後學習如何報告所發展的成果與論文撰寫。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>電腦視覺 (Computer Vision)</li>" +
+            "<li>多媒體訊號處理 (Multimedia Signal Processing)</li>" +
+            "<li>影像處理 (Image Processing)</li>" +
+            "<li>醫學影像處理 (Medical Image Processing)</li>" +
+            "<li>視訊監控 (Video Surveillance)</li>" +
+            "</ol>";
+
+        var li = document.getElementById("19").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色 :本實驗室主要研究是在無線通訊網路系統及雲端運算網路，兼重無線傳輸技術（Physical Layer) 及媒介存取控制層 (MAC Layer) 的研究。最終的目標是希望從實體層和媒介存取控制層，對無線網路系統做 Cross-layer 設計及雲端運算網路的效能最佳化設計。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>無線跨階層式通訊協定設計 (Wireless Cross-layer Protocol Design)</li>" +
+            "<li>無線寬頻網路 (Wireless Broadband Networks)</li>" +
+            "<li>雲端計算網路 (Cloud Computing and Networking)</li>" +
+            "<li>連網型嵌入式系統 (Networked Embedded System)</li>" +
+            "</ol>";
+        var li = document.getElementById("20").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室可分為最佳化組與生物資訊組。最佳化組致力於超啟發式演算法的研究與開發，以解決各種最佳化問題(Optimization problems)。例如：旅行推銷員問題(Traveling Salesman Problem)、圖形著色問題(graph coloring)、Maximum Clique problem，以及各種實務上的問題，如：專案排程、生產排程、選址問題等。生物資訊組主要研究方向以針對分子生物學、結構生物學、系統生物學及醫學領域等各種相關問題，透過電腦科學技術加以分析運算，以提供最佳化解答為目標，建立有助生醫領域實證問題之假說。目前我們主要的研究方向有：</p>";
+
+        var li = document.getElementById("21").getElementsByTagName("li");
+        li[3].innerHTML = "簡介：\t" +
+            "<p>實驗室特色：本實驗室可分為最佳化組與生物資訊組。最佳化組致力於超啟發式演算法的研究與開發，以解決各種最佳化問題(Optimization problems)。例如：旅行推銷員問題(Traveling Salesman Problem)、圖形著色問題(graph coloring)、Maximum Clique problem，以及各種實務上的問題，如：專案排程、生產排程、選址問題等。生物資訊組主要研究方向以針對分子生物學、結構生物學、系統生物學及醫學領域等各種相關問題，透過電腦科學技術加以分析運算，以提供最佳化解答為目標，建立有助生醫領域實證問題之假說。目前我們主要的研究方向有：</p>" +
+            "<ol>" +
+            "<li>超啟發式演算法(Metaheuristic Algorithm)的研究與開發</li>" +
+            "<li>最佳化問題(Optimization problem)之求解</li>" +
+            "<li>核酸研究序列分析設計(Nucleic Acid Sequence Analysis and Design)與PCR引子設計 (Polymerase Chain Reaction Primer Design)以及RNAi (RNA Interference)之研究</li>" +
+            "<li蛋白質結構分析(Protein Structure Analysis)與功能預測及分類(Functional Prediction and Classification)之研究</li>" +
+            "</ol>";
+
+        var id8 = document.getElementById("8");
+        var td = id8.getElementsByTagName("td");
+        td[0].innerHTML = "<img src=\"img/8.bmp\">";
+
+        var id20 = document.getElementById("20");
+        var td = id20.getElementsByTagName("td");
+        td[0].innerHTML = "<img src=\"img/20.png\">";
+        
+    </script>
+
+    <script src="laboratory.js"></script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="國立中興大學資訊科學與工程系介紹">
+    <meta name="keyword" content="中興大學, 資訊科學與工程, 中興資工, 中興">
+    <meta name="name" content="林凡煒">
+
+    <title>介紹 - 國立中興大學資訊科學與工程學系</title>
+
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<canvas id=\"myCanvas\"></canvas>");
+        document.writeln("<div class=\"top\">");
+        document.writeln("<h1 id=\"top\">本系簡介</h1>");
+        document.writeln("<p><nav>");
+        document.writeln("<a href=\"index.html\" id=\"top\">返回首頁</a>");
+        document.writeln("<a href=\"introduction_english.html\">English page</a>");
+        document.writeln("</nav></p>");
+        document.writeln("<hr>");
+        document.writeln("</div>");
+        document.writeln("<div class=\"logo\">");
+        document.writeln("<img src=\"img/overview.png\">");
+        document.writeln("<img src=\"img/overview_text.png\">");
+        document.writeln("</div>");
+        document.writeln("<table border=0>");
+        document.writeln("<tr>");
+        document.writeln("<td>");
+        document.writeln("<summary><mark>一、現況描述</mark></summary>");
+        document.writeln("<section id=\"2\">1. 教育目標與核心能力:推動「知識經濟」已成為未來經濟發展的重要方向，而高素質的資訊人才尤為知識經濟中不可或缺的一環。本系身為中部唯一頂	尖大學的資訊系所，以培養國家尖端資訊產業人才為職志。基於這樣的理念，本系訂定以下教育目標，並基於教育目標，根據不同學制，訂定學生應具備的核心能力： </section>");
+        document.writeln("<table border=0>");
+        document.writeln("<tr>");
+        document.writeln("<td><strong>本系教育目標</strong></td>");
+        document.writeln("<td><ol>");
+        var targets = ["培養具備資訊理論、硬體、軟體、網路多媒體與資訊應用之全方位資訊人才。",
+            "培養具備理論基礎與實作能力的資訊人才。",
+            "培養具備自我挑戰與終身學習能力之人才。"
+        ];
+        for (var i in targets) {
+            document.writeln("<li>" + targets[i] + "</li>");
+        }
+        document.writeln("</td></ol></tr>");
+        document.writeln("<tr><td><strong>大學部學生核心能力</strong></td>");
+        document.writeln("<td><ol>");
+        var bachelor = ["具備資訊科學素養、資訊理論與數學分析之能力。",
+            "具備分析、設計與實作資訊硬體系統之能力。",
+            "具備分析、設計與實作資訊軟體系統之能力。",
+            "具備分析、設計與整合資訊應用系統之能力。",
+            "具備分析、設計與實作資訊網路與多媒體系統之能力。",
+            "具備自我學習、溝通協調與團隊合作之能力。"
+        ];
+        for (var i in bachelor) {
+            document.writeln("<li>" + bachelor[i] + "</li>");
+        }
+        document.writeln("</ol></td></tr>");
+        document.writeln("<tr><td><strong>碩士班學生核心能力</strong></td>");
+        document.writeln("<td><ol>");
+        var master = ["具備資訊科學素養、資訊理論與數學分析之能力。",
+            "具備分析、設計與實作資訊硬體系統之能力。",
+            "具備分析、設計與實作資訊軟體系統之能力。",
+            "具備分析、設計與整合資訊應用系統之能力。",
+            "具備分析、設計與實作資訊網路與多媒體系統之能力。",
+            "具備自我學習、溝通協調與團隊合作之能力。",
+            "具備資料蒐集、獨立思考、解決問題及研究創新之能力。",
+            "尊重學術倫理並具備學術論文的簡報與撰寫能力。"
+        ];
+        for (var i in master) {
+            document.writeln("<li>" + master[i] + "</li>");
+        }
+        document.writeln("</ol></td></tr>");
+        document.writeln("<td><strong>博士班學生核心能力</strong></td>");
+        document.writeln("<td><ol>");
+        var academic = ["具備資訊科學素養、資訊理論與數學分析之能力。",
+            "具備分析、設計與實作資訊硬體系統之能力。",
+            "具備分析、設計與實作資訊軟體系統之能力。",
+            "具備分析、設計與整合資訊應用系統之能力。",
+            "具備分析、設計與實作資訊網路與多媒體系統之能力。",
+            "具備自我學習、溝通協調與團隊合作之能力。",
+            "具備資料蒐集、獨立思考、解決問題及研究創新之能力。",
+            "重學術倫理並具備學術論文的簡報與撰寫能力。"
+        ];
+        for (var i in academic) {
+            document.writeln("<li>" + academic[i] + "</li>");
+        }
+        document.writeln("</ol></td></tr></table>");
+        document.writeln("<section id=\"2\">2.	課程規劃與設計							本系課程之規劃與設計以落實學生核心能力為基礎，並秉持「理論與應用」並重，「深度與廣度」相輔之精神，以期奠定學生在資訊領域的理論基礎與實務能力，進而提升並擴展學生在資訊技術上的深度與廣度，最終為促進中部地區以及國家資訊相關產業的發展。</section>");
+        document.writeln("</td></tr>");
+        document.writeln("<tr><td><summary><mark>二、特色</mark></summary>");
+        document.writeln("<section>資訊科技產業為我國最重要的產業之一。本系身為中部唯一頂尖大學的資訊系所，當以培養國家尖端資訊產業人才為職志，並具備以下辦學特色：</section>");
+        document.writeln("<ol>");
+        var feature = ["為培養具備資訊理論、硬體、軟體、網路多媒體與資訊應用之全方位資訊人才，本系課程規劃以下列四大領域為重點特色：網路多媒體、嵌入式系統、智慧型系統、雲端運算與服務。",
+            "課程規劃強調理論與實務課程並重，例如：「邏輯設計」、「作業系統」、「電子電路學」搭配開設「邏輯設計實驗」、「作業系統實驗」以及、「電子電路實驗」；並且將「資訊專題」列為必修課程，以培養具備理論基礎與實作能力的資訊人才。",
+            "訓練學生程式能力：首先，本系基礎程式設計課程分為大一上下兩學期：上學期為「計算機程式設計」，下學期則為「物件導向程式設計」，以一學年的時間培養學生基本程式能力；其次，每位老師在課程中都會安排程式相關的作業，強化學生程式能力；另外，本系在大二、大三、大四等年級也開設多門程式設計課程，如組合語言與系統程式、視窗環境程式設計、Unix 系統與Script程式設計、網路程式設計、智慧型手機應用程式開發等。本系亦鼓勵學生參與相關程式設計競賽、大學程式能力檢定(CPE)等，進一步提升程式能力。本系也邀請上海復旦大學吳永輝教授，於寒暑假期間蒞臨本系培訓學生程式設計能力。",
+            "因應雲端產業的趨勢，本系與應數系於研究所合作開設「雲端計算與服務學程」，讓本系能在2011年起就開始培育雲端運算與巨量資料分析方面的人才，參加全國性競賽，獲得許多獎項，成績斐然。",
+            "本系要求教師的教學科目與個人學術研究與實務經驗領域相結合。因此，在課程開授上，皆依據老師的專長開授相關課程。同時，各位教師也會將其在研究成果與實務經驗上的最新知識與成果應用在教學上，提升學生學習上的樂趣與效果。"
+        ];
+        for (var i in feature) {
+            document.writeln("<li>" + feature[i] + "</li>");
+        }
+        document.writeln("</ol></td></tr></table>");
+        document.writeln("<div class=\"logo\">");
+        document.writeln("<img src=\"img/organization.png\">");
+        document.writeln("<img src=\"img/organization_text.png\">");
+        document.writeln("</div></table>");
+        document.writeln("<table><tbody><tr><td>");
+        document.writeln("<summary><mark>一、人員：</mark></summary>");
+        document.writeln("</td></tr>");
+        document.writeln("<tr><td><p>林偉教授、詹進科教授、喻石生教授、王行健教授、洪國寶教授、廖宜恩教授兼系主任、高勝助教授、賈坤芳教授、王宗銘教授、黃德成教授兼校友中心主任、張延任教授兼計資中心研究發展組組長、王丕中教授、李德財特約特聘講座教授、張軒彬副教授、吳俊霖副教授、曾學文副教授、黃春融副教授、陳 煥副教授、范耀中助理教授。</p></td></tr>");
+        document.writeln("<tr><td><a href=\"previous_chairman.html\">歷屆主管資料</a></td></tr>");
+        document.writeln("<tr><td>職員：陳秀蘭小姊</td></tr>");
+        document.writeln("<tr><p>本系目前設有 網路與交換系統、最佳化與生物資訊、影像處理及多媒體資料庫、資訊安全、醫學影像處理、超大型積體電路/電腦輔助設計、人工智慧、普及資料與智慧運算、資料挖掘與知識工程、系統暨網路管理、資料工程、圖學多媒體暨虛擬實境、低功率計算機結構、系統單晶片、網路運算、語音語言、電腦視覺暨多媒體、系統與網路、訊號與影像處理、前瞻無線資訊網路、無線通訊暨雲端計算 等21個研究領域實驗室。</p></tr>");
+        document.writeln("<tr><td><a href=\"laboratory.html\">請至「實驗室」瀏覽更多資訊。</a></td></tr>");
+        document.writeln("</tbody></table>");
+
+        document.writeln("<div class=\"logo\">");
+        document.writeln("<img src=\"img/location.png\">");
+        document.writeln("<img src=\"img/location_text.png\">");
+        document.writeln("</div>");
+        document.writeln("<table><tbody><tr><td>本系目前位於中興大學理學大樓7-10樓；　聯絡電話：(04)22840497、(04)22840498</td></tr>");
+        document.writeln("<tr><td><a href=\"contact.html\">請至「聯絡我們」瀏覽更多資訊。</a></td></tr></tbody></table>");
+        document.writeln("<a href=\"#top\">返回頂層</a>");
+    </script>
+
+    <script src="introduction.js"></script>
+    <script>
+
+    var tr = document.getElementsByTagName("tr");
+    var record = Array();
+    var length = tr.length;
+
+    for (var i = 0; i < length; i++) {
+        record[i] = tr[i].innerHTML;
+    }
+
+    function Random() {
+        tr = document.getElementsByTagName("tr");
+        for (var i = 0; i < length; i++) {
+            var random = Math.floor((Math.random() * length));
+            var temp = tr[i].innerHTML;
+            tr[i].innerHTML = tr[random].innerHTML;
+            tr[random].innerHTML = temp;
+        }
+    }
+    function Sort() {
+        var choice = prompt("Please decide your sorting types", "Ascending or Descending");
+        var tr = document.getElementsByTagName("tr");
+        var array = Array();
+        for (var i = 0; i < length; i++) {
+            array[i] = encodeURIComponent(tr[i].innerHTML.charAt(0));
+        }
+        if (choice == "Ascending") {
+            for (var i = 0; i < length; i++) {
+                var min = array[i];
+                for (var j = i; j < length; j++) {
+                    if (array[j] < min) {
+                        min = array[j];
+                        array[j] = array[i];
+                        array[i] = min;
+                        var temp = tr[i].innerHTML;
+                        tr[i].innerHTML = tr[j].innerHTML;
+                        tr[j].innerHTML = temp;
+                    }
+                }
+            }
+        } else if (choice == "Descending") {
+            for (var i = 0; i < length; i++) {
+                var max = array[i];
+                for (var j = i; j < length; j++) {
+                    if (array[j] > max) {
+                        max = array[j];
+                        array[j] = array[i];
+                        array[i] = max;
+                        var temp = tr[i].innerHTML;
+                        tr[i].innerHTML = tr[j].innerHTML;
+                        tr[j].innerHTML = temp;
+                    }
+                }
+            }
+        } else if (choice != null) {
+            alert("The format isn't correct!");
+        }
+    }
+    function Reset() {
+        for (var i = 0; i < length; i++) {
+            tr[i].innerHTML = record[i];
+        }
+    }
+
+    </script>
+
+</head>
+<body>
+
+
+</body>
+</html>

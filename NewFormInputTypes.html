@@ -1,0 +1,83 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>New HTML5 Input Types</title>
+	<script type="text/javascript">
+		//New Type Form with JavaScipt
+		document.writeln("<h1>New HTML5 Input Types Demo</h1>");
+		document.writeln("<p>This form demonstrates the new HTML5 input types and the placeholder, required and autofocus attributes.");
+		document.writeln("</p>");
+		var label = [
+			"Color",
+			"Date",
+			"Datetime",
+			"Datetime-local",
+			"Email",
+			"Month",
+			"Number",
+			"Range",
+			"Search",
+			"Tel",
+			"Time",
+			"URL",
+			"Week",
+			"Username",
+			"Password"
+		];
+		document.writeln("<form method=\"post\">");
+		for(var i in label) {
+			document.writeln("<p>");
+			document.writeln("<label>" + label[i] + ": ");
+			document.writeln("<input/>");
+			document.writeln("</label>");
+			document.writeln("</p>");
+		}
+		document.writeln("<p>");
+		document.writeln("<input onclick=\"Vertifying()\" type =\"submit\" value = \"Submit\" />");
+		document.writeln("<input type = \"reset\" value = \"Clear\" />");
+		document.writeln("</p>");
+		document.writeln("</form>");
+
+		var input = document.getElementsByTagName("input");
+		input[0].outerHTML = "<input type=\"color\" autofocus /> (Hexadecimal code such as #ADD8E6)";
+		input[1].outerHTML = "<input type=\"date\" /> (yyyy-mm-dd)";
+		input[2].outerHTML = "<input type=\"datetime\" /> (yyyy-mm-ddThh:mm+ff:gg, such as 2012-01-27T03:15)";
+		input[3].outerHTML = "<input type=\"Datetime-local\" /> (yyyy-mm-ddThh:mm, such as 2012-01-27T03:15)";
+		input[4].outerHTML = "<input type=\"email\" placeholder=\"name@domain.com\" /> (name@domain.com)";
+		input[5].outerHTML = "<input type=\"month\" /> (yyyy-mm)";
+		input[6].outerHTML = "<input type=\"number\" min=\"0\" max=\"7\" step=\"1\" value=\"4\" /> (Enter a number between 0 and 7)";
+		input[7].outerHTML = "<input type=\"range\" min=\"0\" max=\"20\" value=\"10\" /> 20";
+		input[8].outerHTML = "<input type=\"search\" placeholder=\"search query\" /> (Enter your search query here.)";
+		input[9].outerHTML = "<input type=\"tel\" placeholder=\"(###) ###-#### pattern=\"\(\d{3}\) +\d{3}-\d{4} /> (###) ###-####";
+		input[10].outerHTML = "<input type=\"time\" /> (hh:mm)";
+		input[11].outerHTML = "<input type=\"url\" placeholder = \"http://www.domainname.com\" /> (http://www.domainname.com)";
+		input[12].outerHTML = "<input type=\"week\" /> (yyyy-Wnn, such as 2012-W01)";
+		input[13].outerHTML = "<input type=\"text\" size=\"25\" maxlength=\"30\"/>";
+		input[14].outerHTML = "<input type=\"password\" size=\"25\" maxlength=\"30\" />";
+       
+		
+
+		function Vertifying() {
+		    for (var i = 0; i < 14; i++) {
+		        if (input[i].value == "") {
+		            alert("請填入" + label[i] + "欄位");
+		            break;
+		        }
+
+			}
+		}
+	</script>
+
+</head>
+<body>
+	
+</body>
+</html>

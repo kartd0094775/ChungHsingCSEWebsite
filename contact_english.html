@@ -1,0 +1,262 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="National Chung-Hsing Universaity CSE Information ">
+    <meta name="keyword" content="National Chung-Hsing Universaity, Computer Science, Chung-Hsing CSE, Chung-Hsing">
+    <meta name="name" content="Fan-wei Lin">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    
+    <title>Contact us - National Chung-Hsing Universaity</title>
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<div class=\"background\">" +
+		  "<h1 id=\"top\">Contact us</h1>" +
+		"<div>" +
+			"<nav>" +
+				"<a href=\"index_english.html\">Back to <em>HOME</em> page</a>" +
+				"<a href=\"contact.html\">中文版</a>" +
+			"</nav>" +
+		"</div>" +
+		"<hr>" +
+	"</div>" +
+	"<footer>" +
+	"<table>" +
+		"<tr>" +
+			"<td>" +
+				"<div class=\"stretch\">" +
+						"<h2>Department</h2>" +
+				"</div>" +
+			"</td>" +
+		"</tr>" +
+		"<tr>" +
+			"<td></td>" +
+			"<td>" +
+				"<img class=\"logo\" src=\"img/contact/contact_location.png\">" +
+			"</td>" +
+			"<td>" +
+				"<p>Location:	National Chung-Hsing Universaity Science College Building</p>" +
+			"</td>" +
+			"<td>" +
+				"<img class=\"logo\" src=\"img/contact/contact_telephone.gif\">" +
+			"</td>" +
+			"<td>" +
+				"<p>TEL: (04)22840497、(04)22840498</p>" +
+			"</td>" +
+		"</tr>" +
+		"<tr>" +
+			"<td></td>" +
+			"<td>" +
+				"<img class=\"logo\" src=\"img/contact/contact_fax.png\">" +
+			"</td>" +
+			"<td>" +
+				"<p>FAX: (04)22853869</p>" +
+			"</td>" +
+			"<td>" +
+				"<img class=\"logo\" src=\"img/contact/contact_web.png\">" +
+			"</td>" +
+			"<td>" +
+				"<p>Website:　<a href=\"www.cs.nchu.edu.tw\">www.cs.nchu.edu.tw</a></p>" +
+			"</td>" +
+		"</tr>" +
+		"<tr>" +
+			"<td></td>" +
+			"<td>" +
+				"<img class=\"logo\" src=\"img/contact/contact_design.png\">" +
+			"</td>" +
+			"<td>" +
+				"<p>Website Design:	Xiu-Lan Chen</p>" +
+			"</td>" +
+			"<td>" +
+				"<img class=\"logo\" src=\"img/contact/contact_server.png\">" +
+			"</td>" +
+			"<td>" +
+				"<p>Server Construct:	Jia-Feng Zhang</a></p>" +
+			"</td>" +
+		"</tr>" +
+		"<tr>" +
+			"<td></td>" +
+			"<td>" +
+				"<img class=\"logo\" src=\"img/contact/contact_manager.png\">" +
+			"</td>" +
+			"<td>" +
+				"<p>Website Maintaince：Zhao-Cheng Lin</p>" +
+			"</td>" +
+		"</tr>" +
+				"<tr>" +
+			"<td>" +
+				"<div class=\"stretch\">" +
+					"<h2>Scool</h2>" +
+				"</div>" +
+			"</td>" +
+		"</tr>" +
+		"<tr>" +
+			"<td></td>" +
+			"<td>" +
+				"<img class=\"logo\" src=\"img/contact/contact_location.png\">" +
+			"</td>" +
+			"<td>" +
+				"<p>Location:	No. 250, Guoguang Rd, South District" +
+			"</td>" +
+			"<td>" +
+				"<img class=\"logo\" src=\"img/contact/contact_telephone.gif\">" +
+			"</td>" +
+			"<td>" +
+				"<p>TEL:	(04)22873181</p>" +
+			"</td>" +
+		"</tr>" +
+		"<tr>" +
+			"<td></td>" +
+			"<td>" +
+				"<img class=\"logo\" src=\"img/contact/contact_web.png\">" +
+			"</td>" +
+			"<td>" +
+				"<p>Website: <a href=\"www.nchu.edu.tw\">www.nchu.edu.tw</a></p>" +
+			"</td>" +
+		"</tr>" +
+	"</table>" +
+	"</footer>");
+    </script>
+   <script>
+       var body = document.getElementsByTagName("body");
+       body[0].style.fontFamily = "Oswald";
+
+       var h1 = document.getElementsByTagName("h1");
+       h1[0].style.fontWeight = "lighter";
+       h1[0].style.fontSize = "3em";
+       h1[0].style.textAlign = "center";
+       h1[0].style.color = "darkblue";
+
+       var div = document.getElementsByTagName("div");
+       for (var i = 0; i < div.length; i++) {
+           div[i].style.border = "20px solid transparent";
+       }
+
+       var td = document.getElementsByTagName("td");
+
+       for (var i = 0; i < td.length; i++) {
+           var p = td[i].getElementsByTagName("p");
+           var text = td[i].getElementsByClassName("text");
+
+           for (var k = 0; k < p.length; k++) {
+               p[k].style.paddingLeft = "2cm";
+           }
+           for (var j = 0; j < text.length; j++) {
+               text[j].style.paddingLeft = "2cm";
+           }
+
+       }
+
+       // var img = document.getElementsByTagName("img");
+       // for (var i = 0; i < img.length; i++) {
+       //     var logo = img[i].getElementsByClassName("logo");
+       //     for (var j = 0; j < logo.length; j++) {
+       //         logo[j].style.background = "-webkit-box-reflect: right 5px -webkit-gradient( linear, right top, left top, from(transparent), to(white));"
+       //     }
+       // }
+
+       var stretch = document.getElementsByClassName("stretch");
+       stretch[0].style.backgroundColor = "lightsteelblue";
+       stretch[0].style.borderImage = "url(img/contact/contact_information.png) 25 20 25 20 stretch";
+       stretch[1].style.backgroundColor = "lightsteelblue";
+       stretch[1].style.borderImage = "url(img/contact/contact_information.png) 25 20 25 20 stretch";
+
+
+       var background = document.getElementsByClassName("background");
+       background[0].style.width = "100%";
+       background[0].style.backgroundColor = "pink";
+
+       var p = document.getElementsByTagName("p");
+       var logo = document.getElementsByClassName("logo");
+       var record = Array();
+       var record2 = Array();
+       var length = logo.length;
+
+       for (var i = 0; i < length; i++) {
+           record[i] = p[i].innerHTML;
+           record2[i] = logo[i].outerHTML;
+       }
+
+       function Random() {
+           p = document.getElementsByTagName("p");
+           logo = document.getElementsByClassName("logo");
+           for (var i = 0; i < length; i++) {
+               var random = Math.floor((Math.random() * length));
+               var temp = p[i].innerHTML;
+               p[i].innerHTML = p[random].innerHTML;
+               p[random].innerHTML = temp;
+               var temp = logo[i].outerHTML;
+               logo[i].outerHTML = logo[random].outerHTML;
+               logo[random].outerHTML = temp;
+           }
+       }
+       function Sort() {
+           var choice = prompt("Please decide your sorting types", "Ascending or Descending");
+           p = document.getElementsByTagName("p");
+           logo = document.getElementsByClassName("logo");
+           var array = Array();
+           for (var i = 0; i < length; i++) {
+               array[i] = p[i].innerHTML.charCodeAt(0);
+           }
+           if (choice == "Ascending") {
+               for (var i = 0; i < length; i++) {
+                   var min = array[i];
+                   for (var j = i; j < length; j++) {
+                       if (array[j] < min) {
+                           min = array[j];
+                           array[j] = array[i];
+                           array[i] = min;
+                           var temp = p[i].innerHTML;
+                           p[i].innerHTML = p[j].innerHTML;
+                           p[j].innerHTML = temp;
+                           var temp = logo[i].outerHTML;
+                           logo[i].outerHTML = logo[j].outerHTML;
+                           logo[j].outerHTML = temp;
+                       }
+                   }
+               }
+           } else if (choice == "Descending") {
+               for (var i = 0; i < length; i++) {
+                   var max = array[i];
+                   for (var j = i; j < length; j++) {
+                       if (array[j] > max) {
+                           max = array[j];
+                           array[j] = array[i];
+                           array[i] = max;
+                           var temp = p[i].innerHTML;
+                           p[i].innerHTML = p[j].innerHTML;
+                           p[j].innerHTML = temp;
+                           var temp = logo[i].outerHTML;
+                           logo[i].outerHTML = logo[j].outerHTML;
+                           logo[j].outerHTML = temp;
+                       }
+                   }
+               }
+           } else if (choice != null) {
+               alert("The format isn't correct!");
+           }
+       }
+       function Reset() {
+           for (var i = 0; i < length; i++) {
+               p[i].innerHTML = record[i];
+           }
+           for (var i = 0; i < length; i++) {
+               logo[i].outerHTML = record2[i];
+           }
+       }
+   </script>
+
+</head>
+<body>
+
+</body>
+</html>

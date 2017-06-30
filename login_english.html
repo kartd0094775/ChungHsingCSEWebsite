@@ -1,0 +1,120 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="National Chung-Hsing Universaity CSE Login">
+    <meta name="keyword" content="National Chung-Hsing Universaity, Computer Science, Chung-Hsing CSE, Chung-Hsing">
+    <meta name="name" content="Fan-wei Lin">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+    <title>Login - National Chung-Hsing Universaity</title>
+
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<div class=\"background\">" +
+	"<h1>Login</h1>" +
+	"<p>" +
+		"<nav>" +
+			"<a href=\"index_english.html\">Back to <em>HOME</em> page</a>" +
+			"<a href=\"login.html\">中文版</a>" +
+		"</nav>" +
+	"</p>" +
+	"<hr>" +
+	"<div>" +
+		"<form method =\"post\" autocomplete=\"on\">" +
+		"<p>" +
+			"<label>Username: </label><input name=\"username\" type =\"text\" size=\"25\" maxlength=\"30\" required><br>" +
+		"</p>" +
+		"<p>" +
+			"<label>Password: </label><input name=\"password\" type=\"password\" size=\"25\" maxlength=\"30\" required><br>" +
+		"</p>" +
+		"<p>" +
+			"<input type=\"submit\" class=\"button\" value=\"Submit\">" +
+			"<input type=\"submit\" class=\"button\" value=\"Cancel\">" +
+			"<a href=\"forget.html\" style=\"margin: 10px;\">Forget Password?</a>" +
+		"</p>" +
+		"</form>" +
+	"</div>");
+    </script>
+    <script src="login.js"></script>
+    <script>
+        var body = document.getElementsByTagName("body");
+        body[0].style.fontFamily = "Oswald"
+    var label = document.getElementsByTagName("label");
+    var record = Array();
+    var length = 2;
+
+    for (var i = 0; i < length; i++) {
+        record[i] = label[i].innerHTML;
+    }
+
+    function Random() {
+    	label = document.getElementsByTagName("label");
+        for (var i = 0; i < length; i++) {
+            var random = Math.floor((Math.random() * length));
+            var temp = label[i].innerHTML;
+            label[i].innerHTML = label[random].innerHTML;
+            label[random].innerHTML = temp;
+        }
+    }
+    function Sort() {
+        var choice = prompt("Please decide your sorting types", "Ascending or Descending");
+        label = document.getElementsByTagName("label");
+        var array = Array();
+        for (var i = 0; i < length; i++) {
+            array[i] = label[i].innerHTML.charCodeAt(0);
+        }
+        if (choice == "Ascending") {
+            for (var i = 0; i < length; i++) {
+                var min = array[i];
+                for (var j = i; j < length; j++) {
+                    if (array[j] < min) {
+                        min = array[j];
+                        array[j] = array[i];
+                        array[i] = min;
+                        var temp = label[i].innerHTML;
+                        label[i].innerHTML = label[j].innerHTML;
+                        label[j].innerHTML = temp;
+                    }
+                }
+            }
+        } else if (choice == "Descending") {
+            for (var i = 0; i < length; i++) {
+                var max = array[i];
+                for (var j = i; j < length; j++) {
+                    if (array[j] > max) {
+                        max = array[j];
+                        array[j] = array[i];
+                        array[i] = max;
+                        var temp = label[i].innerHTML;
+                        label[i].innerHTML = label[j].innerHTML;
+                        label[j].innerHTML = temp;
+                    }
+                }
+            }
+        } else if (choice != null) {
+            alert("The format isn't correct!");
+        }
+    }
+    function Reset() {
+        for (var i = 0; i < length; i++) {
+            label[i].innerHTML = record[i];
+        }
+    }
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

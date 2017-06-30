@@ -1,0 +1,253 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="descripition" content="National Chung-Hsing Universaity CSE Laboratory">
+    <meta name="keyword" content="National Chung-Hsing Universaity, Computer Science, Chung-Hsing CSE, Chung-Hsing">
+    <meta name="name" content="Fan-wei Lin">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <title>Laboratory - National Chung-Hsing Universaity</title>
+
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<p><h1 id=\"top\">Laboratory</h1>");
+        document.writeln("<nav><a href=\"index_english.html\">Back to <em>HOME</em> page</a>");
+        document.writeln("<a href=\"laboratory.html\">中文版</a>");
+        document.writeln("</nav></p>");
+        document.writeln("<hr>");
+        document.writeln("<table border=\"0\">");
+        var lab = ["Network and Switch Systems lab",
+            "Image Processing and Multimedia Database Lab",
+            "Information Security Lab",
+            "Medical Image Processing Lab",
+            "VLSI/CAD Lab",
+            "Artificial Intelligence Lab",
+            "Graphics, Multimedia &amp Virtual Reality Lab",
+            "Data Mining &amp Knowledge Engineering Lab",
+            "Data Engineering Laboratory",
+            "Systems &amp Network Management Lab",
+            "System On Chip Lab",
+            "Speech &amp Language Lab",
+            "Low-Power Computer Architecture Lab",
+            "System &amp Network Lab",
+            "Network Computing Laboratory",
+            "Signal and Image Processing Lab",
+            "Advanced Wireless Information Networks Laboratory",
+            "Computer Vision and Multimedia Lab",
+            "Wireless Communication &amp Cloud Computing Lab",
+            "Ubiquitous Data And Intelligent Computing Lab",
+            "Optimization and Bioinformatics Lab"
+        ];
+        var professor = [ "Woei Lin", "Po-Whei Huang", "J.K. Jan", "Shyr-Shen Yu", "Sying-Jyan Wang", "Gwo-Boa Horng", "Chung-Ming Wang",
+            "I-En Liao", "Kuen Fang Jea", "Shang-Juh Kao", "Der-Chen Huang", "Ming-Shing Yu", "Yen-Jen Chang", "Hsung Pin Chang", "Pi-Chung Wang",
+            "Jiunn-Lin Wu", "Huan Chen", "Chun-Rong Huang", "Hsueh-Wen Tseng", "Yao-Chung Fan", "Lin-Yu Tseng"
+        ];
+        var address = [ 
+        	"Room 903[分機 903] at the College of Science Building",
+            "Room 722[分機 722] at the College of Science Building",
+            "Room 720[分機 720] at the College of Science Building",
+            "Room 1022A[分機 622] at the College of Science Building",
+            "Room 922A[分機 922] at the College of Science Building",
+            "Room 922B[分機 924] at the College of Science Building",
+            "Room 904[分機 904] at the College of Science Building",
+            "Room 702B[分機 715] at the College of Science Building",
+            "Room 902[分機 902] at the College of Science Building",
+            "Room 702B[分機 715] at the College of Science Building",
+            "Room 1004[分機 625] at the College of Science Building",
+            "Room 723[分機 723] at the College of Science Building",
+            "Room 1003B[分機 601] at the College of Science Building",
+            "Room 1003A[分機 603] at the College of Science Building",
+            "Room 721[分機 721] at the College of Science Building",
+            "Room 1022B[分機 623] at the College of Science Building",
+            "Room 901A[分機 925] at the College of Science Building",
+            "Room 702C[分機 716] at the College of Science Building",
+            "Room 901B[分機 901] at the College of Science Building",
+            "Room 1007[分機 605] at the College of Science Building",
+            "Room 702C[分機 716] at the College of Science Building"
+        ];
+        var url = [ "http://syslab.cs.nchu.edu.tw/",
+            "http://imdb.cs.nchu.edu.tw/",
+            "http://securitylab.cs.nchu.edu.tw/",
+            "http://miplab.cs.nchu.edu.tw/",
+            "http://vlsilab.cs.nchu.edu.tw/",
+            "http://ailab.cs.nchu.edu.tw/",
+            "http://gmvr.cs.nchu.edu.tw/",
+            "http://dmlab.cs.nchu.edu.tw/",
+            "http://delab.cs.nchu.edu.tw/new_mainpage/index.html",
+            "http://snmlab.cs.nchu.edu.tw/",
+            "http://soc.cs.nchu.edu.tw/",
+            "http://speechlab.cs.nchu.edu.tw/",
+            "http://lpca.cs.nchu.edu.tw/",
+            "http://osnet.cs.nchu.edu.tw/",
+            "http://nclab.cs.nchu.edu.tw/",
+            "http://siplab.cs.nchu.edu.tw/",
+            "http://awin.cs.nchu.edu.tw",
+            "http://cvml.cs.nchu.edu.tw/",
+            "http://wccclab.cs.nchu.edu.tw",
+            "http://udiclab.cs.nchu.edu.tw/",
+            "http://oblab.cs.nchu.edu.tw/"
+        ];
+
+        for (var i in lab) {
+            var number = parseInt(i) + 1;
+            document.writeln("<tr id=\"" + number + "\">");
+            document.writeln("<td>");
+            document.writeln("<img src=\"img/" + number + ".jpg\">");
+            document.writeln("</td>");
+            document.writeln("<td><strong><h3>" + lab[i] + "</h3></strong>");
+            document.writeln("<ul>");
+            document.writeln("<li>Faculty: \t" + professor[i] + "</li>");
+            document.writeln("<li>Location: \t" + address[i] + "</li>");
+            document.writeln("<li>Web Site: \t" + "<a href=\"" + url[i] + "\">" + url[i] + "</a></li>");
+            document.writeln("</ul></td></tr>");
+        }
+        document.writeln("</table>");
+        document.writeln("<p><a href=\"#top\">Back to top</a></p>");
+
+        var id8 = document.getElementById("8");
+        var td = id8.getElementsByTagName("td");
+        td[0].innerHTML = "<img src=\"img/8.bmp\">";
+
+        var id20 = document.getElementById("20");
+        var td = id20.getElementsByTagName("td");
+        td[0].innerHTML = "<img src=\"img/20.png\">";
+        
+    </script>
+
+    <script type="text/javascript">
+    	var body = document.getElementsByTagName("body");
+    	body[0].style.fontFamily = "Oswald";
+
+    	var h1 = document.getElementsByTagName("h1");
+    	h1[0].style.fontWeight = "lighter";
+    	h1[0].style.textAlign = "center";
+    	h1[0].style.textShadow = "2px 2px 0.8px";
+    	h1[0].style.color = "grey";
+    	h1[0].style.fontSize = "3em";
+
+    	var table = document.getElementsByTagName("table");
+    	table[0].style.width = "100%";
+
+
+    	var h3 = document.getElementsByTagName("h3");
+
+    	for (var i = 0; i < h3.length; i++) {
+    	    h3[i].style.textDecoration = "underline";
+    	    var number = parseInt(i) + 1;
+    	    if (number % 2 == 1) {
+    	        var odd = document.getElementById(number);
+    	        var td = odd.getElementsByTagName("td");
+    	        td[0].style.backgroundColor = "lightsteelblue";
+    	        td[1].style.backgroundColor = "lightsteelblue";
+    	    }
+    	}
+
+    	function Blink() {
+    	    var img = document.getElementsByTagName("img");
+    	    for (var i = 0; i < img.length; i++) {
+    	        (function (i) {
+    	            img[i].style.transition = "2s";
+    	            var id = setInterval(sparkle, 2000);
+    	            var count = -1;
+    	            function sparkle() {
+    	                count++;
+    	                switch (count) {
+    	                    case 0:
+    	                        img[i].style.opacity = "1";
+    	                        break;
+    	                    case 1:
+    	                        img[i].style.opacity = "0";
+    	                        count = -1;
+    	                        break;
+    	                    default:
+    	                        break;
+    	                }
+    	            }
+    	        }(i))
+    	    }
+    	}
+    	window.addEventListener("load", Blink);
+
+
+    	var tr = document.getElementsByTagName("tr");
+    	var record = Array();
+    	var length = tr.length;
+
+    	for (var i = 0; i < length; i++) {
+    	    record[i] = tr[i].innerHTML;
+    	}
+
+    	function Random() {
+    	    tr = document.getElementsByTagName("tr");
+    	    for (var i = 0; i < length; i++) {
+    	        var random = Math.floor((Math.random() * length));
+    	        var temp = tr[i].innerHTML;
+    	        tr[i].innerHTML = tr[random].innerHTML;
+    	        tr[random].innerHTML = temp;
+    	    }
+    	    Blink();
+    	}
+    	function Sort() {
+    	    var choice = prompt("Please decide your sorting types", "Ascending or Descending");
+    	    var h3 = document.getElementsByTagName("h3");
+    	    var array = Array();
+    	    for (var i = 0; i < length; i++) {
+    	        array[i] = h3[i].innerHTML.charCodeAt(0);
+    	    }
+    	    if (choice == "Ascending") {
+    	        for (var i = 0; i < length; i++) {
+    	            var min = array[i];
+    	            for (var j = i; j < length; j++) {
+    	                if (array[j] < min) {
+    	                    min = array[j];
+    	                    array[j] = array[i];
+    	                    array[i] = min;
+    	                    var temp = tr[i].innerHTML;
+    	                    tr[i].innerHTML = tr[j].innerHTML;
+    	                    tr[j].innerHTML = temp;
+    	                }
+    	            }
+    	        }
+    	    } else if (choice == "Descending") {
+    	        for (var i = 0; i < length; i++) {
+    	            var max = array[i];
+    	            for (var j = i; j < length; j++) {
+    	                if (array[j] > max) {
+    	                    max = array[j];
+    	                    array[j] = array[i];
+    	                    array[i] = max;
+    	                    var temp = tr[i].innerHTML;
+    	                    tr[i].innerHTML = tr[j].innerHTML;
+    	                    tr[j].innerHTML = temp;
+    	                }
+    	            }
+    	        }
+    	    } else if (choice !=null) {
+    	        alert("The format isn't correct!");
+    	    }
+    	    Blink();
+    	}
+    	function Reset() {
+    	    for (var i = 0; i < length; i++) {
+    	        tr[i].innerHTML = record[i];
+    	    }
+    	    Blink();
+    	}
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

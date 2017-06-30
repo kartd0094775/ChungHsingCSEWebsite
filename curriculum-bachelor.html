@@ -1,0 +1,51 @@
+﻿<!--
+/***************************
+4102056019 林凡煒 第三次作業 4/26
+4102056019 Fan-wei Lin The Third Homework 4/26
+***************************/
+ -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="descripition" content="國立中興大學資訊科學與工程系課程地圖">
+    <meta name="keyword" content="中興大學, 資訊科學與工程, 中興資工, 中興">
+    <meta name="name" content="林凡煒">
+    <title>課程地圖 - 國立中興大學資訊科學與工程學系</title>
+
+    <script>
+        document.writeln("<button type=\"button\" onclick=\"Random()\">Random</button>");
+        document.writeln("<button type=\"button\" onclick=\"Sort()\">Sort</button>");
+        document.writeln("<button type=\"button\" onclick=\"Reset()\">Reset</button>");
+        document.writeln("<canvas id=\"peru\"></canvas>");
+        document.writeln("<div class=\"top\">");
+        document.writeln("<h1>大學部</h1>");
+        document.writeln("<p id=\"back\"><a href=\"index.html\">返回首頁</a></p>");
+        document.writeln("</div>");
+        document.writeln("<hr>");
+        document.writeln("<p><nav>");
+        document.writeln("<a href=\"curriculum-bachelor.html\">大學部</a>");
+        document.writeln("<a href=\"curriculum-master.html\">碩士班</a>");
+        document.writeln("<a href=\"curriculum-academic.html\">博士班</a>");
+        document.writeln("</nav></p>");
+        document.writeln("<div><figure>");
+        var caption = ["系所課程地圖", "課程規劃表(一)", "課程規劃表(二)", "課程規劃表(三)", "課程規劃表(四)", "課程規劃表(五)"];
+        for (var i in caption) {
+            document.writeln("<figcaption>" + caption[i] + "</figcaption>");
+            var number = parseInt(i) + 1;
+            document.writeln("<img src=\"img/curriculum/U" + number + ".jpg\">");
+        }
+        document.writeln("</figure></div>");
+        document.writeln("<span style=\"text-align: center;\">");
+        document.writeln("<a href=\"#top\">回到頂端</a>");
+        document.writeln("</span>");
+    </script>
+
+    <script src="curriculum.js"></script>
+</head>
+<body>
+    
+
+</body>
+</html>
